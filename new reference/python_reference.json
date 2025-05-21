@@ -1,0 +1,1235 @@
+{
+  "title": "Python Reference Guide",
+  "categories": {
+    "Data Manipulations": [
+      {
+        "title": "Python Data Structure Manipulations Guide",
+        "purpose": "",
+        "syntax": "",
+        "examples": []
+      },
+      {
+        "title": "Basic List Comprehension",
+        "purpose": "Create a new list by applying an expression to each item in an iterable",
+        "syntax": "[expression for item in iterable]",
+        "examples": [
+          "# Square numbers\nnumbers = [1, 2, 3, 4, 5]\nsquares = [n**2 for n in numbers]  # Returns [1, 4, 9, 16, 25]\n# Convert to uppercase\nwords = ['hello', 'world']\nupper_words = [word.upper() for word in words]  # Returns ['HELLO', 'WORLD']"
+        ]
+      },
+      {
+        "title": "List Comprehension with Condition",
+        "purpose": "Create a new list by applying an expression to filtered items",
+        "syntax": "[expression for item in iterable if condition]",
+        "examples": [
+          "# Even numbers only\nnumbers = [1, 2, 3, 4, 5, 6]\nevens = [n for n in numbers if n % 2 == 0]  # Returns [2, 4, 6]\n# Words longer than 3 characters\nwords = ['cat', 'dog', 'elephant', 'bird']\nlong_words = [word for word in words if len(word) > 3]  # Returns ['elephant', 'bird']"
+        ]
+      },
+      {
+        "title": "Nested List Comprehension",
+        "purpose": "Create a new list using nested loops",
+        "syntax": "[expression for item1 in iterable1 for item2 in iterable2]",
+        "examples": [
+          "# Create a multiplication table\ntable = [[i * j for j in range(1, 4)] for i in range(1, 4)]\n# Returns [[1, 2, 3], [2, 4, 6], [3, 6, 9]]\n# Flatten a 2D list\nmatrix = [[1, 2, 3], [4, 5, 6], [7, 8, 9]]\nflat = [num for row in matrix for num in row]  # Returns [1, 2, 3, 4, 5, 6, 7, 8, 9]"
+        ]
+      },
+      {
+        "title": "Generator Expressions",
+        "purpose": "Create an iterator that generates values on demand",
+        "syntax": "(expression for item in iterable)",
+        "examples": [
+          "# Sum of squares\nnumbers = [1, 2, 3, 4, 5]\nsum_squares = sum(n**2 for n in numbers)  # Returns 55\n# Find first match\nnumbers = [1, 2, 3, 4, 5]\nfirst_even = next(n for n in numbers if n % 2 == 0)  # Returns 2"
+        ]
+      },
+      {
+        "title": "Basic Dictionary Comprehension",
+        "purpose": "Create a new dictionary by applying expressions to keys and values",
+        "syntax": "{key_expression: value_expression for item in iterable}",
+        "examples": [
+          "# Square numbers as dictionary\nnumbers = [1, 2, 3, 4, 5]\nsquares_dict = {n: n**2 for n in numbers}\n# Returns {1: 1, 2: 4, 3: 9, 4: 16, 5: 25}\n# Word lengths\nwords = ['cat', 'dog', 'elephant']\nlength_dict = {word: len(word) for word in words}\n# Returns {'cat': 3, 'dog': 3, 'elephant': 8}"
+        ]
+      },
+      {
+        "title": "Dictionary Comprehension with Condition",
+        "purpose": "Create a new dictionary with filtered items",
+        "syntax": "{key: value for item in iterable if condition}",
+        "examples": [
+          "# Only even numbers\nnumbers = [1, 2, 3, 4, 5, 6]\neven_squares = {n: n**2 for n in numbers if n % 2 == 0}\n# Returns {2: 4, 4: 16, 6: 36}\n# Words longer than 3 characters\nwords = ['cat', 'dog', 'elephant', 'bird']\nlong_words = {word: len(word) for word in words if len(word) > 3}\n# Returns {'elephant': 8, 'bird': 4}"
+        ]
+      },
+      {
+        "title": "Set Comprehension",
+        "purpose": "Create a new set by applying an expression to each item",
+        "syntax": "{expression for item in iterable}",
+        "examples": [
+          "# Unique squares\nnumbers = [1, 2, 2, 3, 3, 3]\nunique_squares = {n**2 for n in numbers}  # Returns {1, 4, 9}\n# Unique word lengths\nwords = ['cat', 'dog', 'elephant', 'bird']\nunique_lengths = {len(word) for word in words}  # Returns {3, 4, 8}"
+        ]
+      },
+      {
+        "title": "List Operations with zip()",
+        "purpose": "Combine multiple iterables into a single iterable of tuples",
+        "syntax": "zip(iterable1, iterable2, ...)",
+        "examples": [
+          "# Combine two lists\nnames = ['Alice', 'Bob', 'Charlie']\nages = [25, 30, 35]\ncombined = list(zip(names, ages))\n# Returns [('Alice', 25), ('Bob', 30), ('Charlie', 35)]\n# Unzip\npairs = [('Alice', 25), ('Bob', 30), ('Charlie', 35)]\nnames, ages = zip(*pairs)\n# Returns ('Alice', 'Bob', 'Charlie'), (25, 30, 35)"
+        ]
+      },
+      {
+        "title": "List Operations with enumerate()",
+        "purpose": "Add indices to iterable items",
+        "syntax": "enumerate(iterable, start=0)",
+        "examples": [
+          "# Add indices to list\nwords = ['cat', 'dog', 'elephant']\nindexed = list(enumerate(words))\n# Returns [(0, 'cat'), (1, 'dog'), (2, 'elephant')]\n# Start from 1\nindexed = list(enumerate(words, start=1))\n# Returns [(1, 'cat'), (2, 'dog'), (3, 'elephant')]"
+        ]
+      },
+      {
+        "title": "List Operations with filter()",
+        "purpose": "Create an iterator of elements that satisfy a condition",
+        "syntax": "filter(function, iterable)",
+        "examples": [
+          "# Filter even numbers\nnumbers = [1, 2, 3, 4, 5, 6]\nevens = list(filter(lambda x: x % 2 == 0, numbers))\n# Returns [2, 4, 6]\n# Filter non-empty strings\nwords = ['', 'cat', '', 'dog', '']\nnon_empty = list(filter(None, words))\n# Returns ['cat', 'dog']"
+        ]
+      },
+      {
+        "title": "List Operations with map()",
+        "purpose": "Apply a function to each item in an iterable",
+        "syntax": "map(function, iterable)",
+        "examples": [
+          "# Square numbers\nnumbers = [1, 2, 3, 4, 5]\nsquares = list(map(lambda x: x**2, numbers))\n# Returns [1, 4, 9, 16, 25]\n# Convert to uppercase\nwords = ['hello', 'world']\nupper_words = list(map(str.upper, words))\n# Returns ['HELLO', 'WORLD']"
+        ]
+      },
+      {
+        "title": "Example: Complex Data Transformations",
+        "purpose": "",
+        "syntax": "",
+        "examples": [
+          "# Create a dictionary of word frequencies\ntext = \"the quick brown fox jumps over the lazy dog\"\nwords = text.split()\nword_freq = {word: words.count(word) for word in set(words)}\nprint(f\"Word frequencies: {word_freq}\")\n# Find common elements in two lists\nlist1 = [1, 2, 3, 4, 5]\nlist2 = [4, 5, 6, 7, 8]\ncommon = [x for x in list1 if x in list2]\nprint(f\"Common elements: {common}\")\n# Create a matrix transpose\nmatrix = [[1, 2, 3], [4, 5, 6], [7, 8, 9]]\ntranspose = [[row[i] for row in matrix] for i in range(len(matrix[0]))]\nprint(f\"Transposed matrix: {transpose}\")\n# Group items by a key\nitems = [('apple', 'fruit'), ('banana', 'fruit'), ('carrot', 'vegetable')]\ngrouped = {}\nfor item, category in items:\ngrouped.setdefault(category, []).append(item)\nprint(f\"Grouped items: {grouped}\")"
+        ]
+      }
+    ],
+    "List Operations": [
+      {
+        "title": "Python List Operations and Data Handling Guide",
+        "purpose": "",
+        "syntax": "",
+        "examples": []
+      },
+      {
+        "title": "Creating Lists",
+        "purpose": "Different ways to create and initialize lists",
+        "syntax": "Various list creation methods",
+        "examples": [
+          "# Empty list\nempty_list = []\n# List with initial values\nnumbers = [1, 2, 3, 4, 5]\n# List comprehension\nsquares = [x**2 for x in range(5)]  # [0, 1, 4, 9, 16]\n# List from string\nchars = list(\"Hello\")  # ['H', 'e', 'l', 'l', 'o']\n# List from range\nnumbers = list(range(5))  # [0, 1, 2, 3, 4]"
+        ]
+      },
+      {
+        "title": "Accessing List Elements",
+        "purpose": "Get elements from a list using different methods",
+        "syntax": "Indexing and slicing",
+        "examples": [
+          "numbers = [1, 2, 3, 4, 5]\n# Get single element\nfirst = numbers[0]  # 1\nlast = numbers[-1]  # 5\n# Slicing\nfirst_three = numbers[:3]  # [1, 2, 3]\nlast_two = numbers[-2:]  # [4, 5]\nmiddle = numbers[1:4]  # [2, 3, 4]\n# Step slicing\neven_indices = numbers[::2]  # [1, 3, 5]\nreverse = numbers[::-1]  # [5, 4, 3, 2, 1]"
+        ]
+      },
+      {
+        "title": "Adding Elements",
+        "purpose": "Add elements to a list",
+        "syntax": "Various methods to append or insert elements",
+        "examples": [
+          "numbers = [1, 2, 3]\n# Append single element\nnumbers.append(4)  # [1, 2, 3, 4]\n# Extend with multiple elements\nnumbers.extend([5, 6])  # [1, 2, 3, 4, 5, 6]\n# Insert at specific position\nnumbers.insert(0, 0)  # [0, 1, 2, 3, 4, 5, 6]\n# List concatenation\nnumbers = numbers + [7, 8]  # [0, 1, 2, 3, 4, 5, 6, 7, 8]\n# Shorthand concatenation\nnumbers += [9, 10]  # [0, 1, 2, 3, 4, 5, 6, 7, 8, 9, 10]"
+        ]
+      },
+      {
+        "title": "Removing Elements",
+        "purpose": "Remove elements from a list",
+        "syntax": "Various methods to remove elements",
+        "examples": [
+          "numbers = [1, 2, 3, 4, 5, 3]\n# Remove by value (first occurrence)\nnumbers.remove(3)  # [1, 2, 4, 5, 3]\n# Remove by index\npopped = numbers.pop(1)  # numbers: [1, 4, 5, 3], popped: 2\n# Remove last element\nlast = numbers.pop()  # numbers: [1, 4, 5], last: 3\n# Clear all elements\nnumbers.clear()  # []\n# Delete by index\nnumbers = [1, 2, 3, 4, 5]\ndel numbers[1:3]  # [1, 4, 5]"
+        ]
+      },
+      {
+        "title": "Updating Elements",
+        "purpose": "Modify elements in a list",
+        "syntax": "Direct assignment and list methods",
+        "examples": [
+          "numbers = [1, 2, 3, 4, 5]\n# Update single element\nnumbers[0] = 10  # [10, 2, 3, 4, 5]\n# Update slice\nnumbers[1:3] = [20, 30]  # [10, 20, 30, 4, 5]\n# Sort in place\nnumbers.sort()  # [4, 5, 10, 20, 30]\n# Reverse in place\nnumbers.reverse()  # [30, 20, 10, 5, 4]"
+        ]
+      },
+      {
+        "title": "List Comprehensions",
+        "purpose": "Create new lists using concise syntax",
+        "syntax": "[expression for item in iterable if condition]",
+        "examples": [
+          "# Basic comprehension\nsquares = [x**2 for x in range(5)]  # [0, 1, 4, 9, 16]\n# With condition\neven_squares = [x**2 for x in range(10) if x % 2 == 0]  # [0, 4, 16, 36, 64]\n# Nested comprehension\nmatrix = [[i+j for j in range(3)] for i in range(3)]\n# [[0, 1, 2], [1, 2, 3], [2, 3, 4]]"
+        ]
+      },
+      {
+        "title": "Generator Expressions",
+        "purpose": "Create memory-efficient iterators",
+        "syntax": "(expression for item in iterable if condition)",
+        "examples": [
+          "# Basic generator\nsquares = (x**2 for x in range(5))\n# Use with next() or in loops\n# With condition\neven_squares = (x**2 for x in range(10) if x % 2 == 0)\n# Convert to list if needed\nsquares_list = list(squares)"
+        ]
+      },
+      {
+        "title": "List Operations",
+        "purpose": "Common operations on lists",
+        "syntax": "Built-in functions and methods",
+        "examples": [
+          "numbers = [1, 2, 3, 4, 5]\n# Length\nlength = len(numbers)  # 5\n# Count occurrences\ncount = numbers.count(3)  # 1\n# Find index\nindex = numbers.index(3)  # 2\n# Check membership\nexists = 3 in numbers  # True\n# Sum, min, max\ntotal = sum(numbers)  # 15\nminimum = min(numbers)  # 1\nmaximum = max(numbers)  # 5"
+        ]
+      },
+      {
+        "title": "List Sorting",
+        "purpose": "Sort lists in different ways",
+        "syntax": "sort() and sorted() methods",
+        "examples": [
+          "numbers = [3, 1, 4, 1, 5, 9, 2, 6]\n# Sort in place\nnumbers.sort()  # [1, 1, 2, 3, 4, 5, 6, 9]\n# Sort in reverse\nnumbers.sort(reverse=True)  # [9, 6, 5, 4, 3, 2, 1, 1]\n# Create new sorted list\n# sorted_numbers = sorted(numbers)  # Original unchanged\n# Sort by key\nwords = ['apple', 'banana', 'cherry']\nwords.sort(key=len)  # ['apple', 'cherry', 'banana']"
+        ]
+      },
+      {
+        "title": "Basic Looping",
+        "purpose": "Different ways to iterate over lists",
+        "syntax": "for loops and while loops",
+        "examples": [
+          "numbers = [1, 2, 3, 4, 5]\n# For loop\nfor num in numbers:\nprint(num)\n# While loop\ni = 0\nwhile i < len(numbers):\nprint(numbers[i])\ni += 1\n# Enumerate\nfor index, value in enumerate(numbers):\nprint(f\"Index {index}: {value}\")\n# Range-based loop\nfor i in range(len(numbers)):\nprint(f\"Index {i}: {numbers[i]}\")"
+        ]
+      },
+      {
+        "title": "Advanced Looping",
+        "purpose": "Advanced iteration techniques",
+        "syntax": "zip, enumerate, and other tools",
+        "examples": [
+          "# Zip multiple lists\nnames = ['Alice', 'Bob', 'Charlie']\nages = [25, 30, 35]\nfor name, age in zip(names, ages):\nprint(f\"{name} is {age} years old\")\n# List comprehension with condition\neven_numbers = [x for x in range(10) if x % 2 == 0]\n# Generator expression\nsum_squares = sum(x**2 for x in range(10))\n# Filter\neven_numbers = list(filter(lambda x: x % 2 == 0, range(10)))\n# Map\nsquares = list(map(lambda x: x**2, range(10)))"
+        ]
+      },
+      {
+        "title": "Example: List Manipulation Tasks",
+        "purpose": "",
+        "syntax": "",
+        "examples": [
+          "# Remove duplicates while preserving order\ndef remove_duplicates(lst):\nreturn list(dict.fromkeys(lst))\n# Flatten nested list\ndef flatten(lst):\nreturn [item for sublist in lst for item in sublist]\n# Group items by key\ndef group_by(lst, key_func):\ngroups = {}\nfor item in lst:\nkey = key_func(item)\nif key not in groups:\ngroups[key] = []\ngroups[key].append(item)\nreturn groups\n# Example usage\nnumbers = [1, 2, 2, 3, 3, 3, 4, 4, 4, 4]\nunique = remove_duplicates(numbers)  # [1, 2, 3, 4]\nnested = [[1, 2], [3, 4], [5, 6]]\nflat = flatten(nested)  # [1, 2, 3, 4, 5, 6]\nwords = ['apple', 'banana', 'cherry', 'date']\nby_length = group_by(words, len)  # {5: ['apple'], 6: ['banana', 'cherry'], 4: ['date']}"
+        ]
+      }
+    ],
+    "Methods Reference": [
+      {
+        "title": "Python Methods Reference Guide",
+        "purpose": "",
+        "syntax": "",
+        "examples": []
+      },
+      {
+        "title": "sum()",
+        "purpose": "Calculate the sum of all items in an iterable",
+        "syntax": "sum(iterable, start=0)",
+        "examples": [
+          "numbers = [1, 2, 3, 4, 5]\ntotal = sum(numbers)  # Returns 15\ntotal_with_start = sum(numbers, 10)  # Returns 25"
+        ]
+      },
+      {
+        "title": "len()",
+        "purpose": "Return the length (number of items) of an object",
+        "syntax": "len(object)",
+        "examples": [
+          "text = \"Hello\"\nlength = len(text)  # Returns 5\nmy_list = [1, 2, 3]\nlist_length = len(my_list)  # Returns 3"
+        ]
+      },
+      {
+        "title": "sorted()",
+        "purpose": "Return a new sorted list from the items in iterable",
+        "syntax": "sorted(iterable, key=None, reverse=False)",
+        "examples": [
+          "numbers = [3, 1, 4, 1, 5]\nsorted_nums = sorted(numbers)  # Returns [1, 1, 3, 4, 5]\nsorted_desc = sorted(numbers, reverse=True)  # Returns [5, 4, 3, 1, 1]"
+        ]
+      },
+      {
+        "title": "max() and min()",
+        "purpose": "Return the largest/smallest item in an iterable",
+        "syntax": "max(iterable, key=None) or min(iterable, key=None)",
+        "examples": [
+          "numbers = [1, 2, 3, 4, 5]\nmaximum = max(numbers)  # Returns 5\nminimum = min(numbers)  # Returns 1"
+        ]
+      },
+      {
+        "title": "append()",
+        "purpose": "Add an element to the end of the list",
+        "syntax": "list.append(element)",
+        "examples": [
+          "my_list = [1, 2, 3]\nmy_list.append(4)  # my_list becomes [1, 2, 3, 4]"
+        ]
+      },
+      {
+        "title": "extend()",
+        "purpose": "Extend list by appending elements from the iterable",
+        "syntax": "list.extend(iterable)",
+        "examples": [
+          "list1 = [1, 2, 3]\nlist2 = [4, 5, 6]\nlist1.extend(list2)  # list1 becomes [1, 2, 3, 4, 5, 6]"
+        ]
+      },
+      {
+        "title": "insert()",
+        "purpose": "Insert an element at a specified position",
+        "syntax": "list.insert(index, element)",
+        "examples": [
+          "my_list = [1, 2, 3]\nmy_list.insert(1, 'x')  # my_list becomes [1, 'x', 2, 3]"
+        ]
+      },
+      {
+        "title": "remove()",
+        "purpose": "Remove first occurrence of value",
+        "syntax": "list.remove(value)",
+        "examples": [
+          "my_list = [1, 2, 3, 2]\nmy_list.remove(2)  # my_list becomes [1, 3, 2]"
+        ]
+      },
+      {
+        "title": "pop()",
+        "purpose": "Remove and return item at index (default last)",
+        "syntax": "list.pop(index=-1)",
+        "examples": [
+          "my_list = [1, 2, 3]\nlast = my_list.pop()  # Returns 3, my_list becomes [1, 2]\nfirst = my_list.pop(0)  # Returns 1, my_list becomes [2]"
+        ]
+      },
+      {
+        "title": "index()",
+        "purpose": "Return first index of value",
+        "syntax": "list.index(value, start=0, end=len(list))",
+        "examples": [
+          "my_list = [1, 2, 3, 2]\nindex = my_list.index(2)  # Returns 1"
+        ]
+      },
+      {
+        "title": "count()",
+        "purpose": "Return number of occurrences of value",
+        "syntax": "list.count(value)",
+        "examples": [
+          "my_list = [1, 2, 2, 3, 2]\ncount = my_list.count(2)  # Returns 3"
+        ]
+      },
+      {
+        "title": "sort()",
+        "purpose": "Sort the list in place",
+        "syntax": "list.sort(key=None, reverse=False)",
+        "examples": [
+          "my_list = [3, 1, 4, 1, 5]\nmy_list.sort()  # my_list becomes [1, 1, 3, 4, 5]\nmy_list.sort(reverse=True)  # my_list becomes [5, 4, 3, 1, 1]"
+        ]
+      },
+      {
+        "title": "reverse()",
+        "purpose": "Reverse the list in place",
+        "syntax": "list.reverse()",
+        "examples": [
+          "my_list = [1, 2, 3]\nmy_list.reverse()  # my_list becomes [3, 2, 1]"
+        ]
+      },
+      {
+        "title": "upper() and lower()",
+        "purpose": "Convert string to uppercase/lowercase",
+        "syntax": "string.upper() or string.lower()",
+        "examples": [
+          "text = \"Hello\"\nupper_text = text.upper()  # Returns \"HELLO\"\nlower_text = text.lower()  # Returns \"hello"
+        ]
+      },
+      {
+        "title": "strip(), lstrip(), rstrip()",
+        "purpose": "Remove leading/trailing whitespace or specified characters",
+        "syntax": "string.strip(chars=None)",
+        "examples": [
+          "text = \"  Hello  \"\nstripped = text.strip()  # Returns \"Hello\"\ntext2 = \"***Hello***\"\nstripped2 = text2.strip('*')  # Returns \"Hello"
+        ]
+      },
+      {
+        "title": "split()",
+        "purpose": "Split string into a list",
+        "syntax": "string.split(sep=None, maxsplit=-1)",
+        "examples": [
+          "text = \"Hello,World,Python\"\nparts = text.split(',')  # Returns ['Hello', 'World', 'Python']"
+        ]
+      },
+      {
+        "title": "join()",
+        "purpose": "Join elements of an iterable into a string",
+        "syntax": "string.join(iterable)",
+        "examples": [
+          "words = ['Hello', 'World']\ntext = ' '.join(words)  # Returns \"Hello World"
+        ]
+      },
+      {
+        "title": "replace()",
+        "purpose": "Replace occurrences of substring",
+        "syntax": "string.replace(old, new, count=-1)",
+        "examples": [
+          "text = \"Hello World\"\nnew_text = text.replace('World', 'Python')  # Returns \"Hello Python"
+        ]
+      },
+      {
+        "title": "startswith() and endswith()",
+        "purpose": "Check if string starts/ends with specified prefix/suffix",
+        "syntax": "string.startswith(prefix) or string.endswith(suffix)",
+        "examples": [
+          "text = \"Hello World\"\nstarts = text.startswith('Hello')  # Returns True\nends = text.endswith('World')  # Returns True"
+        ]
+      },
+      {
+        "title": "get()",
+        "purpose": "Return value for key if key exists, else default",
+        "syntax": "dict.get(key, default=None)",
+        "examples": [
+          "my_dict = {'a': 1, 'b': 2}\nvalue = my_dict.get('a')  # Returns 1\nvalue = my_dict.get('c', 0)  # Returns 0"
+        ]
+      },
+      {
+        "title": "keys(), values(), items()",
+        "purpose": "Return view of dictionary's keys/values/key-value pairs",
+        "syntax": "dict.keys(), dict.values(), dict.items()",
+        "examples": [
+          "my_dict = {'a': 1, 'b': 2}\nkeys = my_dict.keys()  # Returns dict_keys(['a', 'b'])\nvalues = my_dict.values()  # Returns dict_values([1, 2])\nitems = my_dict.items()  # Returns dict_items([('a', 1), ('b', 2)])"
+        ]
+      },
+      {
+        "title": "update()",
+        "purpose": "Update dictionary with key/value pairs",
+        "syntax": "dict.update(other_dict)",
+        "examples": [
+          "dict1 = {'a': 1}\ndict2 = {'b': 2}\ndict1.update(dict2)  # dict1 becomes {'a': 1, 'b': 2}"
+        ]
+      },
+      {
+        "title": "pop()",
+        "purpose": "Remove specified key and return corresponding value",
+        "syntax": "dict.pop(key, default)",
+        "examples": [
+          "my_dict = {'a': 1, 'b': 2}\nvalue = my_dict.pop('a')  # Returns 1, my_dict becomes {'b': 2}"
+        ]
+      },
+      {
+        "title": "add()",
+        "purpose": "Add element to set",
+        "syntax": "set.add(element)",
+        "examples": [
+          "my_set = {1, 2, 3}\nmy_set.add(4)  # my_set becomes {1, 2, 3, 4}"
+        ]
+      },
+      {
+        "title": "remove() and discard()",
+        "purpose": "Remove element from set (remove raises KeyError if not found)",
+        "syntax": "set.remove(element) or set.discard(element)",
+        "examples": [
+          "my_set = {1, 2, 3}\nmy_set.remove(2)  # my_set becomes {1, 3}\nmy_set.discard(4)  # No error if 4 not in set"
+        ]
+      },
+      {
+        "title": "union(), intersection(), difference()",
+        "purpose": "Return new set with elements from both sets/only in both/only in first",
+        "syntax": "set1.union(set2), set1.intersection(set2), set1.difference(set2)",
+        "examples": [
+          "set1 = {1, 2, 3}\nset2 = {3, 4, 5}\nunion = set1.union(set2)  # Returns {1, 2, 3, 4, 5}\nintersection = set1.intersection(set2)  # Returns {3}\ndifference = set1.difference(set2)  # Returns {1, 2}"
+        ]
+      }
+    ],
+    "Number Conversions": [
+      {
+        "title": "Python Number System Conversions and String Encoding Guide",
+        "purpose": "",
+        "syntax": "",
+        "examples": []
+      },
+      {
+        "title": "Decimal to Binary",
+        "purpose": "Convert decimal number to binary string",
+        "syntax": "bin(number) or format(number, 'b')",
+        "examples": [
+          "decimal = 42\nbinary = bin(decimal)  # Returns '0b101010'\nbinary_no_prefix = format(decimal, 'b')  # Returns '101010'\nbinary_padded = format(decimal, '08b')  # Returns '00101010' (8 digits)"
+        ]
+      },
+      {
+        "title": "Decimal to Hexadecimal",
+        "purpose": "Convert decimal number to hexadecimal string",
+        "syntax": "hex(number) or format(number, 'x')",
+        "examples": [
+          "decimal = 42\nhex_num = hex(decimal)  # Returns '0x2a'\nhex_no_prefix = format(decimal, 'x')  # Returns '2a'\nhex_upper = format(decimal, 'X')  # Returns '2A'\nhex_padded = format(decimal, '04x')  # Returns '002a' (4 digits)"
+        ]
+      },
+      {
+        "title": "Decimal to Octal",
+        "purpose": "Convert decimal number to octal string",
+        "syntax": "oct(number) or format(number, 'o')",
+        "examples": [
+          "decimal = 42\noctal = oct(decimal)  # Returns '0o52'\noctal_no_prefix = format(decimal, 'o')  # Returns '52'\noctal_padded = format(decimal, '04o')  # Returns '0052' (4 digits)"
+        ]
+      },
+      {
+        "title": "Binary to Decimal",
+        "purpose": "Convert binary string to decimal number",
+        "syntax": "int(binary_string, 2)",
+        "examples": [
+          "binary = '101010'\ndecimal = int(binary, 2)  # Returns 42\nbinary_with_prefix = '0b101010'\ndecimal2 = int(binary_with_prefix, 2)  # Returns 42"
+        ]
+      },
+      {
+        "title": "Hexadecimal to Decimal",
+        "purpose": "Convert hexadecimal string to decimal number",
+        "syntax": "int(hex_string, 16)",
+        "examples": [
+          "hex_str = '2a'\ndecimal = int(hex_str, 16)  # Returns 42\nhex_with_prefix = '0x2a'\ndecimal2 = int(hex_with_prefix, 16)  # Returns 42"
+        ]
+      },
+      {
+        "title": "Octal to Decimal",
+        "purpose": "Convert octal string to decimal number",
+        "syntax": "int(octal_string, 8)",
+        "examples": [
+          "octal = '52'\ndecimal = int(octal, 8)  # Returns 42\noctal_with_prefix = '0o52'\ndecimal2 = int(octal_with_prefix, 8)  # Returns 42"
+        ]
+      },
+      {
+        "title": "Binary to Hexadecimal",
+        "purpose": "Convert binary string to hexadecimal string",
+        "syntax": "hex(int(binary_string, 2)) or format(int(binary_string, 2), 'x')",
+        "examples": [
+          "binary = '101010'\nhex_str = hex(int(binary, 2))  # Returns '0x2a'\nhex_no_prefix = format(int(binary, 2), 'x')  # Returns '2a'\nhex_upper = format(int(binary, 2), 'X')  # Returns '2A'"
+        ]
+      },
+      {
+        "title": "Binary to Octal",
+        "purpose": "Convert binary string to octal string",
+        "syntax": "oct(int(binary_string, 2)) or format(int(binary_string, 2), 'o')",
+        "examples": [
+          "binary = '101010'\noctal = oct(int(binary, 2))  # Returns '0o52'\noctal_no_prefix = format(int(binary, 2), 'o')  # Returns '52'"
+        ]
+      },
+      {
+        "title": "Hexadecimal to Binary",
+        "purpose": "Convert hexadecimal string to binary string",
+        "syntax": "bin(int(hex_string, 16)) or format(int(hex_string, 16), 'b')",
+        "examples": [
+          "hex_str = '2a'\nbinary = bin(int(hex_str, 16))  # Returns '0b101010'\nbinary_no_prefix = format(int(hex_str, 16), 'b')  # Returns '101010'\nbinary_padded = format(int(hex_str, 16), '08b')  # Returns '00101010'"
+        ]
+      },
+      {
+        "title": "Hexadecimal to Octal",
+        "purpose": "Convert hexadecimal string to octal string",
+        "syntax": "oct(int(hex_string, 16)) or format(int(hex_string, 16), 'o')",
+        "examples": [
+          "hex_str = '2a'\noctal = oct(int(hex_str, 16))  # Returns '0o52'\noctal_no_prefix = format(int(hex_str, 16), 'o')  # Returns '52'"
+        ]
+      },
+      {
+        "title": "Octal to Binary",
+        "purpose": "Convert octal string to binary string",
+        "syntax": "bin(int(octal_string, 8)) or format(int(octal_string, 8), 'b')",
+        "examples": [
+          "octal = '52'\nbinary = bin(int(octal, 8))  # Returns '0b101010'\nbinary_no_prefix = format(int(octal, 8), 'b')  # Returns '101010'\nbinary_padded = format(int(octal, 8), '08b')  # Returns '00101010'"
+        ]
+      },
+      {
+        "title": "Octal to Hexadecimal",
+        "purpose": "Convert octal string to hexadecimal string",
+        "syntax": "hex(int(octal_string, 8)) or format(int(octal_string, 8), 'x')",
+        "examples": [
+          "octal = '52'\nhex_str = hex(int(octal, 8))  # Returns '0x2a'\nhex_no_prefix = format(int(octal, 8), 'x')  # Returns '2a'\nhex_upper = format(int(octal, 8), 'X')  # Returns '2A'"
+        ]
+      },
+      {
+        "title": "String to Bytes (UTF-8)",
+        "purpose": "Convert string to bytes using UTF-8 encoding",
+        "syntax": "string.encode('utf-8')",
+        "examples": [
+          "text = \"Hello, 世界\"\nbytes_data = text.encode('utf-8')  # Returns b'Hello, \\xe4\\xb8\\x96\\xe7\\x95\\x8c'"
+        ]
+      },
+      {
+        "title": "Bytes to String (UTF-8)",
+        "purpose": "Convert bytes to string using UTF-8 decoding",
+        "syntax": "bytes_data.decode('utf-8')",
+        "examples": [
+          "bytes_data = b'Hello, \\xe4\\xb8\\x96\\xe7\\x95\\x8c'\ntext = bytes_data.decode('utf-8')  # Returns \"Hello, 世界"
+        ]
+      },
+      {
+        "title": "ASCII Encoding/Decoding",
+        "purpose": "Convert string to/from ASCII bytes",
+        "syntax": "string.encode('ascii') or bytes_data.decode('ascii')",
+        "examples": [
+          "text = \"Hello\"\nascii_bytes = text.encode('ascii')  # Returns b'Hello'\ndecoded_text = ascii_bytes.decode('ascii')  # Returns \"Hello"
+        ]
+      },
+      {
+        "title": "Base64 Encoding/Decoding",
+        "purpose": "Convert bytes to/from base64 string",
+        "syntax": "base64.b64encode() or base64.b64decode()",
+        "examples": [
+          "import base64\ndata = b'Hello, World!'\nencoded = base64.b64encode(data)  # Returns b'SGVsbG8sIFdvcmxkIQ=='\ndecoded = base64.b64decode(encoded)  # Returns b'Hello, World!'"
+        ]
+      },
+      {
+        "title": "String to Binary",
+        "purpose": "Convert string to binary representation",
+        "syntax": "' '.join(format(ord(char), '08b') for char in string)",
+        "examples": [
+          "text = \"Hello\"\nbinary = ' '.join(format(ord(char), '08b') for char in text)\n# Returns '01001000 01100101 01101100 01101100 01101111'\n# For Unicode characters\ntext = \"Hello, 世界\"\nbinary = ' '.join(format(ord(char), '08b') for char in text)\n# Returns '01001000 01100101 01101100 01101100 01101111 00101100 00100000 11100100 10111000 10010110 11100101 10101101 10001100'"
+        ]
+      },
+      {
+        "title": "Binary to String",
+        "purpose": "Convert binary string back to text",
+        "syntax": "''.join(chr(int(binary, 2)) for binary in binary_string.split())",
+        "examples": [
+          "binary = '01001000 01100101 01101100 01101100 01101111'\ntext = ''.join(chr(int(binary, 2)) for binary in binary.split())\n# Returns \"Hello\"\n# For Unicode characters\nbinary = '01001000 01100101 01101100 01101100 01101111 00101100 00100000 11100100 10111000 10010110 11100101 10101101 10001100'\ntext = ''.join(chr(int(binary, 2)) for binary in binary.split())\n# Returns \"Hello, 世界"
+        ]
+      },
+      {
+        "title": "String to Binary (Alternative Method)",
+        "purpose": "Convert string to binary using bytes",
+        "syntax": "' '.join(format(byte, '08b') for byte in string.encode('utf-8'))",
+        "examples": [
+          "text = \"Hello\"\nbinary = ' '.join(format(byte, '08b') for byte in text.encode('utf-8'))\n# Returns '01001000 01100101 01101100 01101100 01101111'\n# For Unicode characters\ntext = \"Hello, 世界\"\nbinary = ' '.join(format(byte, '08b') for byte in text.encode('utf-8'))\n# Returns '01001000 01100101 01101100 01101100 01101111 00101100 00100000 11100100 10111000 10010110 11100101 10101101 10001100'"
+        ]
+      },
+      {
+        "title": "Binary to String (Alternative Method)",
+        "purpose": "Convert binary string back to text using bytes",
+        "syntax": "bytes([int(binary, 2) for binary in binary_string.split()]).decode('utf-8')",
+        "examples": [
+          "binary = '01001000 01100101 01101100 01101100 01101111'\ntext = bytes([int(binary, 2) for binary in binary.split()]).decode('utf-8')\n# Returns \"Hello\"\n# For Unicode characters\nbinary = '01001000 01100101 01101100 01101100 01101111 00101100 00100000 11100100 10111000 10010110 11100101 10101101 10001100'\ntext = bytes([int(binary, 2) for binary in binary.split()]).decode('utf-8')\n# Returns \"Hello, 世界"
+        ]
+      },
+      {
+        "title": "Example: Converting between number systems",
+        "purpose": "",
+        "syntax": "",
+        "examples": [
+          "# Decimal to different bases\nnum = 42\nprint(f\"Decimal {num}:\")\nprint(f\"Binary: {bin(num)}\")\nprint(f\"Hex: {hex(num)}\")\nprint(f\"Octal: {oct(num)}\")\n# Converting back to decimal\nbinary = '101010'\nhex_str = '2a'\noctal = '52'\nprint(f\"\\nConverting back to decimal:\")\nprint(f\"Binary {binary} -> {int(binary, 2)}\")\nprint(f\"Hex {hex_str} -> {int(hex_str, 16)}\")\nprint(f\"Octal {octal} -> {int(octal, 8)}\")\n# Cross-conversion examples\nprint(f\"\\nCross-conversion examples:\")\nprint(f\"Binary to Hex: {hex(int(binary, 2))}\")\nprint(f\"Hex to Binary: {bin(int(hex_str, 16))}\")\nprint(f\"Octal to Hex: {hex(int(octal, 8))}\")\nprint(f\"Hex to Octal: {oct(int(hex_str, 16))}\")"
+        ]
+      },
+      {
+        "title": "Example: String encoding/decoding",
+        "purpose": "",
+        "syntax": "",
+        "examples": [
+          "# UTF-8 encoding/decoding\ntext = \"Hello, 世界\"\nencoded = text.encode('utf-8')\ndecoded = encoded.decode('utf-8')\nprint(f\"Original: {text}\")\nprint(f\"Encoded: {encoded}\")\nprint(f\"Decoded: {decoded}\")\n# Base64 encoding/decoding\nimport base64\ndata = b'Hello, World!'\nencoded = base64.b64encode(data)\ndecoded = base64.b64decode(encoded)\nprint(f\"\\nOriginal: {data}\")\nprint(f\"Base64: {encoded}\")\nprint(f\"Decoded: {decoded}\")"
+        ]
+      },
+      {
+        "title": "Example: String to Binary and Back",
+        "purpose": "",
+        "syntax": "",
+        "examples": [
+          "# Convert string to binary\ntext = \"Hello, 世界\"\nprint(f\"Original text: {text}\")\n# Method 1: Using ord() and chr()\nbinary1 = ' '.join(format(ord(char), '08b') for char in text)\nprint(f\"\\nMethod 1 - Binary: {binary1}\")\ntext1 = ''.join(chr(int(binary, 2)) for binary in binary1.split())\nprint(f\"Method 1 - Back to text: {text1}\")\n# Method 2: Using bytes\nbinary2 = ' '.join(format(byte, '08b') for byte in text.encode('utf-8'))\nprint(f\"\\nMethod 2 - Binary: {binary2}\")\ntext2 = bytes([int(binary, 2) for binary in binary2.split()]).decode('utf-8')\nprint(f\"Method 2 - Back to text: {text2}\")"
+        ]
+      },
+      {
+        "title": "File Operations",
+        "purpose": "Overview of reading and writing text files in Python",
+        "syntax": "open(filename, mode, encoding=None)",
+        "examples": []
+      },
+      {
+        "title": "Writing to a Text File",
+        "purpose": "Write text data to a file (overwrites or creates new file)",
+        "syntax": "with open(filename, 'w', encoding='utf-8') as f: f.write(data)",
+        "examples": [
+          "# Write text to a file\nwith open('example.txt', 'w', encoding='utf-8') as f:\n    f.write('Hello, World!\\n')\n    f.write('This is a new file.\\n')\n\n# Example output: (contents of example.txt)\n# Hello, World!\n# This is a new file."
+        ]
+      },
+      {
+        "title": "Appending to a Text File",
+        "purpose": "Add text to the end of an existing file",
+        "syntax": "with open(filename, 'a', encoding='utf-8') as f: f.write(data)",
+        "examples": [
+          "# Append text to a file\nwith open('example.txt', 'a', encoding='utf-8') as f:\n    f.write('Appended line.\\n')\n\n# Example output: (contents of example.txt after append)\n# Hello, World!\n# This is a new file.\n# Appended line."
+        ]
+      },
+      {
+        "title": "Reading a Text File (All at Once)",
+        "purpose": "Read the entire contents of a file as a string",
+        "syntax": "with open(filename, 'r', encoding='utf-8') as f: data = f.read()",
+        "examples": [
+          "# Read all contents from a file\nwith open('example.txt', 'r', encoding='utf-8') as f:\n    data = f.read()\n    print(data)\n\n# Example output:\n# Hello, World!\n# This is a new file.\n# Appended line."
+        ]
+      },
+      {
+        "title": "Reading a Text File (Line by Line)",
+        "purpose": "Read each line from a file in a loop",
+        "syntax": "with open(filename, 'r', encoding='utf-8') as f: for line in f: ...",
+        "examples": [
+          "# Read file line by line\nwith open('example.txt', 'r', encoding='utf-8') as f:\n    for line in f:\n        print(line.strip())\n\n# Example output:\n# Hello, World!\n# This is a new file.\n# Appended line."
+        ]
+      },
+      {
+        "title": "Reading All Lines into a List",
+        "purpose": "Read all lines from a file into a list of strings",
+        "syntax": "with open(filename, 'r', encoding='utf-8') as f: lines = f.readlines()",
+        "examples": [
+          "# Read all lines into a list\nwith open('example.txt', 'r', encoding='utf-8') as f:\n    lines = f.readlines()\n    print(lines)\n\n# Example output:\n# ['Hello, World!\\n', 'This is a new file.\\n', 'Appended line.\\n']"
+        ]
+      },
+      {
+        "title": "Best Practices for File Handling",
+        "purpose": "Always use 'with' statement to ensure files are closed properly",
+        "syntax": "with open(filename, mode, encoding='utf-8') as f: ...",
+        "examples": [
+          "# Using 'with' ensures the file is closed automatically\nwith open('example.txt', 'r', encoding='utf-8') as f:\n    data = f.read()\n# File is now closed, even if an error occurred inside the block."
+        ]
+      }
+    ],
+    "String Manipulations": [
+      {
+        "title": "Python String Manipulation Guide",
+        "purpose": "",
+        "syntax": "",
+        "examples": []
+      },
+      {
+        "title": "Membership Testing (in, not in)",
+        "purpose": "Check if a substring exists in a string",
+        "syntax": "substring in string, substring not in string",
+        "examples": [
+          "text = \"Hello, World!\"\ncontains = \"World\" in text  # Returns True\nnot_contains = \"Python\" not in text  # Returns True\n# Case-sensitive comparison\n\"hello\" in text  # Returns False\n\"hello\" in text.lower()  # Returns True"
+        ]
+      },
+      {
+        "title": "String Comparison",
+        "purpose": "Compare strings lexicographically",
+        "syntax": "string1 < string2, string1 <= string2, etc.",
+        "examples": [
+          "# Lexicographical comparison\n\"apple\" < \"banana\"  # Returns True\n\"cat\" > \"dog\"  # Returns False\n# Case matters in comparison\n\"Apple\" < \"banana\"  # Returns True (uppercase comes before lowercase)\n# Compare with case-insensitive\n\"Apple\".lower() < \"banana\".lower()  # Returns True"
+        ]
+      },
+      {
+        "title": "isalpha(), isdigit(), isalnum()",
+        "purpose": "Check if string contains only alphabets/digits/alphanumeric",
+        "syntax": "string.isalpha(), string.isdigit(), string.isalnum()",
+        "examples": [
+          "\"Hello\".isalpha()  # Returns True\n\"123\".isdigit()  # Returns True\n\"Hello123\".isalnum()  # Returns True\n\"Hello 123\".isalnum()  # Returns False (contains space)"
+        ]
+      },
+      {
+        "title": "isspace(), islower(), isupper()",
+        "purpose": "Check string characteristics",
+        "syntax": "string.isspace(), string.islower(), string.isupper()",
+        "examples": [
+          "\"   \".isspace()  # Returns True\n\"hello\".islower()  # Returns True\n\"HELLO\".isupper()  # Returns True\n\"Hello\".islower()  # Returns False"
+        ]
+      },
+      {
+        "title": "isnumeric(), isdecimal(), isprintable()",
+        "purpose": "Check string characteristics",
+        "syntax": "string.isnumeric(), string.isdecimal(), string.isprintable()",
+        "examples": [
+          "\"123\".isnumeric()  # Returns True\n\"123\".isdecimal()  # Returns True\n\"Hello\\n\".isprintable()  # Returns False (contains newline)\n\"Hello\".isprintable()  # Returns True"
+        ]
+      },
+      {
+        "title": "istitle(), isidentifier()",
+        "purpose": "Check if string is title case or valid identifier",
+        "syntax": "string.istitle(), string.isidentifier()",
+        "examples": [
+          "\"Hello World\".istitle()  # Returns True\n\"hello world\".istitle()  # Returns False\n\"variable_name\".isidentifier()  # Returns True\n\"123variable\".isidentifier()  # Returns False"
+        ]
+      },
+      {
+        "title": "find() and rfind()",
+        "purpose": "Find the first/last occurrence of a substring",
+        "syntax": "string.find(substring, start=0, end=len(string))",
+        "examples": [
+          "text = \"Hello, World! Hello, Python!\"\nfirst = text.find('Hello')  # Returns 0\nlast = text.rfind('Hello')  # Returns 13\nnot_found = text.find('Python', 0, 10)  # Returns -1"
+        ]
+      },
+      {
+        "title": "index() and rindex()",
+        "purpose": "Find the first/last occurrence of a substring (raises ValueError if not found)",
+        "syntax": "string.index(substring, start=0, end=len(string))",
+        "examples": [
+          "text = \"Hello, World! Hello, Python!\"\nfirst = text.index('Hello')  # Returns 0\nlast = text.rindex('Hello')  # Returns 13\n# text.index('Python', 0, 10)  # Raises ValueError"
+        ]
+      },
+      {
+        "title": "count()",
+        "purpose": "Count occurrences of a substring",
+        "syntax": "string.count(substring, start=0, end=len(string))",
+        "examples": [
+          "text = \"Hello, World! Hello, Python!\"\ncount = text.count('Hello')  # Returns 2\ncount_range = text.count('o', 0, 10)  # Returns 2"
+        ]
+      },
+      {
+        "title": "startswith() and endswith()",
+        "purpose": "Check if string starts/ends with a prefix/suffix",
+        "syntax": "string.startswith(prefix, start=0, end=len(string))",
+        "examples": [
+          "text = \"Hello, World!\"\nstarts = text.startswith('Hello')  # Returns True\nends = text.endswith('!')  # Returns True\nstarts_range = text.startswith('World', 7)  # Returns True"
+        ]
+      },
+      {
+        "title": "replace()",
+        "purpose": "Replace occurrences of a substring",
+        "syntax": "string.replace(old, new, count=-1)",
+        "examples": [
+          "text = \"Hello, World! Hello, Python!\"\nreplaced = text.replace('Hello', 'Hi')  # Returns \"Hi, World! Hi, Python!\"\nreplaced_once = text.replace('Hello', 'Hi', 1)  # Returns \"Hi, World! Hello, Python!"
+        ]
+      },
+      {
+        "title": "translate() and maketrans()",
+        "purpose": "Replace multiple characters using a translation table",
+        "syntax": "string.translate(table)",
+        "examples": [
+          "# Create translation table\ntable = str.maketrans('aeiou', '12345')\ntext = \"Hello, World!\"\ntranslated = text.translate(table)  # Returns \"H2ll4, W4rld!\"\n# Remove specific characters\nremove_chars = str.maketrans('', '', '!,.')\ncleaned = text.translate(remove_chars)  # Returns \"Hello World"
+        ]
+      },
+      {
+        "title": "split() and rsplit()",
+        "purpose": "Split string into a list",
+        "syntax": "string.split(sep=None, maxsplit=-1)",
+        "examples": [
+          "text = \"Hello, World, Python\"\nparts = text.split(',')  # Returns ['Hello', ' World', ' Python']\nparts = text.split(',', 1)  # Returns ['Hello', ' World, Python']\nwords = text.split()  # Returns ['Hello,', 'World,', 'Python']"
+        ]
+      },
+      {
+        "title": "splitlines()",
+        "purpose": "Split string at line boundaries",
+        "syntax": "string.splitlines(keepends=False)",
+        "examples": [
+          "text = \"Line 1\\nLine 2\\r\\nLine 3\"\nlines = text.splitlines()  # Returns ['Line 1', 'Line 2', 'Line 3']\nlines_with_ends = text.splitlines(True)  # Returns ['Line 1\\n', 'Line 2\\r\\n', 'Line 3']"
+        ]
+      },
+      {
+        "title": "join()",
+        "purpose": "Join elements of an iterable into a string",
+        "syntax": "string.join(iterable)",
+        "examples": [
+          "words = ['Hello', 'World', 'Python']\ntext = ' '.join(words)  # Returns \"Hello World Python\"\ntext = '-'.join(words)  # Returns \"Hello-World-Python"
+        ]
+      },
+      {
+        "title": "upper(), lower(), title(), capitalize()",
+        "purpose": "Convert string case",
+        "syntax": "string.upper(), string.lower(), string.title(), string.capitalize()",
+        "examples": [
+          "text = \"hello, world!\"\nupper = text.upper()  # Returns \"HELLO, WORLD!\"\nlower = text.lower()  # Returns \"hello, world!\"\ntitle = text.title()  # Returns \"Hello, World!\"\ncap = text.capitalize()  # Returns \"Hello, world!"
+        ]
+      },
+      {
+        "title": "swapcase()",
+        "purpose": "Swap case of all characters",
+        "syntax": "string.swapcase()",
+        "examples": [
+          "text = \"Hello, World!\"\nswapped = text.swapcase()  # Returns \"hELLO, wORLD!"
+        ]
+      },
+      {
+        "title": "casefold()",
+        "purpose": "Convert string to casefolded form (for case-insensitive comparison)",
+        "syntax": "string.casefold()",
+        "examples": [
+          "text = \"Hello, World!\"\nfolded = text.casefold()  # Returns \"hello, world!\"\n# Useful for case-insensitive comparison\n\"Hello\".casefold() == \"hello\".casefold()  # Returns True"
+        ]
+      },
+      {
+        "title": "strip(), lstrip(), rstrip()",
+        "purpose": "Remove leading/trailing whitespace or specified characters",
+        "syntax": "string.strip(chars=None)",
+        "examples": [
+          "text = \"  Hello, World!  \"\nstripped = text.strip()  # Returns \"Hello, World!\"\ntext = \"***Hello***\"\nstripped = text.strip('*')  # Returns \"Hello"
+        ]
+      },
+      {
+        "title": "ljust(), rjust(), center()",
+        "purpose": "Pad string to a specified width",
+        "syntax": "string.ljust(width, fillchar=' ')",
+        "examples": [
+          "text = \"Hello\"\nleft = text.ljust(10)  # Returns \"Hello     \"\nright = text.rjust(10)  # Returns \"     Hello\"\ncenter = text.center(10)  # Returns \"  Hello   \"\npadded = text.center(10, '*')  # Returns \"**Hello***"
+        ]
+      },
+      {
+        "title": "zfill()",
+        "purpose": "Pad string with zeros on the left",
+        "syntax": "string.zfill(width)",
+        "examples": [
+          "text = \"42\"\npadded = text.zfill(5)  # Returns \"00042\"\ntext = \"-42\"\npadded = text.zfill(5)  # Returns \"-0042"
+        ]
+      },
+      {
+        "title": "Example: String Validation and Checking",
+        "purpose": "",
+        "syntax": "",
+        "examples": [
+          "# Validate a string\ndef validate_string(text):\nif not text:\nreturn \"Empty string\"\nif not text.isprintable():\nreturn \"Contains non-printable characters\"\nif not text.isalnum():\nreturn \"Contains special characters\"\nreturn \"Valid string\"\nprint(validate_string(\"Hello123\"))  # Returns \"Valid string\"\nprint(validate_string(\"Hello 123\"))  # Returns \"Contains special characters\"\n# Check password strength\ndef check_password(password):\nif len(password) < 8:\nreturn \"Too short\"\nif not any(c.isupper() for c in password):\nreturn \"No uppercase letters\"\nif not any(c.islower() for c in password):\nreturn \"No lowercase letters\"\nif not any(c.isdigit() for c in password):\nreturn \"No numbers\"\nreturn \"Strong password\"\nprint(check_password(\"abc\"))  # Returns \"Too short\"\nprint(check_password(\"abc123\"))  # Returns \"No uppercase letters\"\nprint(check_password(\"Abc123\"))  # Returns \"Strong password\"\n# Find common words in two strings\ndef find_common_words(str1, str2):\nwords1 = set(str1.lower().split())\nwords2 = set(str2.lower().split())\nreturn words1 & words2  # Returns intersection of sets\ntext1 = \"The quick brown fox\"\ntext2 = \"The lazy brown dog\"\ncommon = find_common_words(text1, text2)\nprint(f\"Common words: {common}\")  # Returns {'the', 'brown'}"
+        ]
+      }
+    ],
+    "Data Structures": [
+      {
+        "title": "Stack (List and Deque)",
+        "purpose": "LIFO (Last-In-First-Out) data structure using list and deque.",
+        "syntax": "stack = []  # or collections.deque()",
+        "examples": [
+          "# Stack using list\nstack = []\nstack.append(1)\nstack.append(2)\nstack.append(3)\nprint(stack.pop())  # 3\nprint(stack[-1])    # 2\nprint(len(stack))   # 2\n\n# Stack using deque\nfrom collections import deque\nstack = deque()\nstack.append('a')\nstack.append('b')\nprint(stack.pop())  # 'b'"
+        ]
+      },
+      {
+        "title": "Queue (Deque and queue.Queue)",
+        "purpose": "FIFO (First-In-First-Out) data structure using deque and queue.Queue.",
+        "syntax": "queue = collections.deque()  # or queue.Queue()",
+        "examples": [
+          "# Queue using deque\nfrom collections import deque\nqueue = deque()\nqueue.append(1)\nqueue.append(2)\nprint(queue.popleft())  # 1\nprint(queue[0])        # 2\n\n# Queue using queue.Queue\nfrom queue import Queue\nq = Queue()\nq.put('x')\nq.put('y')\nprint(q.get())  # 'x'"
+        ]
+      },
+      {
+        "title": "Circular Queue",
+        "purpose": "Queue with wrap-around behavior (fixed size).",
+        "syntax": "Custom class implementation",
+        "examples": [
+          "# Circular Queue\nclass CircularQueue:\n    def __init__(self, k):\n        self.queue = [None] * k\n        self.max_size = k\n        self.front = self.rear = -1\n    def enqueue(self, data):\n        if (self.rear + 1) % self.max_size == self.front:\n            print('Queue is Full')\n            return\n        if self.front == -1:\n            self.front = 0\n        self.rear = (self.rear + 1) % self.max_size\n        self.queue[self.rear] = data\n    def dequeue(self):\n        if self.front == -1:\n            print('Queue is Empty')\n            return\n        data = self.queue[self.front]\n        if self.front == self.rear:\n            self.front = self.rear = -1\n        else:\n            self.front = (self.front + 1) % self.max_size\n        return data\n# Usage\ncq = CircularQueue(3)\ncq.enqueue(10)\ncq.enqueue(20)\ncq.enqueue(30)\ncq.dequeue()\ncq.enqueue(40)"
+        ]
+      },
+      {
+        "title": "Singly Linked List",
+        "purpose": "Linear data structure with nodes pointing to the next node.",
+        "syntax": "Custom class implementation",
+        "examples": [
+          "class Node:\n    def __init__(self, data):\n        self.data = data\n        self.next = None\nclass LinkedList:\n    def __init__(self):\n        self.head = None\n    def append(self, data):\n        new = Node(data)\n        if not self.head:\n            self.head = new\n            return\n        cur = self.head\n        while cur.next:\n            cur = cur.next\n        cur.next = new\n    def display(self):\n        cur = self.head\n        while cur:\n            print(cur.data, end=' ')\n            cur = cur.next\n# Usage\nll = LinkedList()\nll.append(1)\nll.append(2)\nll.display()  # 1 2 "
+        ]
+      },
+      {
+        "title": "Doubly Linked List",
+        "purpose": "Nodes have next and previous pointers.",
+        "syntax": "Custom class implementation",
+        "examples": [
+          "class Node:\n    def __init__(self, data):\n        self.data = data\n        self.prev = None\n        self.next = None\nclass DoublyLinkedList:\n    def __init__(self):\n        self.head = None\n    def append(self, data):\n        new = Node(data)\n        if not self.head:\n            self.head = new\n            return\n        cur = self.head\n        while cur.next:\n            cur = cur.next\n        cur.next = new\n        new.prev = cur\n    def display(self):\n        cur = self.head\n        while cur:\n            print(cur.data, end=' ')\n            cur = cur.next\n# Usage\ndl = DoublyLinkedList()\ndl.append(1)\ndl.append(2)\ndl.display()  # 1 2 "
+        ]
+      },
+      {
+        "title": "Binary Tree",
+        "purpose": "Hierarchical structure with left and right children.",
+        "syntax": "Custom class implementation",
+        "examples": [
+          "class Node:\n    def __init__(self, data):\n        self.data = data\n        self.left = None\n        self.right = None\ndef inorder(node):\n    if node:\n        inorder(node.left)\n        print(node.data, end=' ')\n        inorder(node.right)\n# Usage\nroot = Node(1)\nroot.left = Node(2)\nroot.right = Node(3)\ninorder(root)  # 2 1 3 "
+        ]
+      },
+      {
+        "title": "Binary Search Tree (BST)",
+        "purpose": "Binary tree with ordered nodes.",
+        "syntax": "Custom class implementation",
+        "examples": [
+          "class Node:\n    def __init__(self, data):\n        self.data = data\n        self.left = None\n        self.right = None\nclass BST:\n    def __init__(self):\n        self.root = None\n    def insert(self, data):\n        if not self.root:\n            self.root = Node(data)\n            return\n        cur = self.root\n        while True:\n            if data < cur.data:\n                if cur.left: cur = cur.left\n                else: cur.left = Node(data); break\n            else:\n                if cur.right: cur = cur.right\n                else: cur.right = Node(data); break\n    def inorder(self, node):\n        if node:\n            self.inorder(node.left)\n            print(node.data, end=' ')\n            self.inorder(node.right)\n# Usage\nbst = BST()\nfor v in [5,3,7,2,4,6,8]: bst.insert(v)\nbst.inorder(bst.root)  # 2 3 4 5 6 7 8 "
+        ]
+      },
+      {
+        "title": "Heap (Min Heap)",
+        "purpose": "Complete binary tree with heap property.",
+        "syntax": "import heapq",
+        "examples": [
+          "import heapq\nh = []\nheapq.heappush(h, 3)\nheapq.heappush(h, 1)\nheapq.heappush(h, 2)\nprint(heapq.heappop(h))  # 1\nprint(h[0])  # 2 (min element)"
+        ]
+      },
+      {
+        "title": "Trie (Prefix Tree)",
+        "purpose": "Efficient for prefix-based string search.",
+        "syntax": "Custom class implementation",
+        "examples": [
+          "class TrieNode:\n    def __init__(self):\n        self.children = {}\n        self.is_end = False\nclass Trie:\n    def __init__(self):\n        self.root = TrieNode()\n    def insert(self, word):\n        node = self.root\n        for c in word:\n            if c not in node.children:\n                node.children[c] = TrieNode()\n            node = node.children[c]\n        node.is_end = True\n    def search(self, word):\n        node = self.root\n        for c in word:\n            if c not in node.children: return False\n            node = node.children[c]\n        return node.is_end\n# Usage\ntrie = Trie()\ntrie.insert('cat')\nprint(trie.search('cat'))  # True\nprint(trie.search('car'))  # False"
+        ]
+      },
+      {
+        "title": "Graph (Adjacency List)",
+        "purpose": "Nodes and edges, can be directed or undirected.",
+        "syntax": "dict of lists",
+        "examples": [
+          "graph = {\n    'A': ['B', 'C'],\n    'B': ['A', 'D'],\n    'C': ['A', 'D'],\n    'D': ['B', 'C']\n}\n# BFS\ndef bfs(graph, start):\n    visited = set([start])\n    queue = [start]\n    while queue:\n        v = queue.pop(0)\n        print(v, end=' ')\n        for n in graph[v]:\n            if n not in visited:\n                visited.add(n)\n                queue.append(n)\nbfs(graph, 'A')  # A B C D"
+        ]
+      },
+      {
+        "title": "Union-Find (Disjoint Set)",
+        "purpose": "Efficient structure for union and find operations.",
+        "syntax": "Custom class implementation",
+        "examples": [
+          "class UnionFind:\n    def __init__(self, n):\n        self.parent = list(range(n))\n    def find(self, x):\n        if self.parent[x] != x:\n            self.parent[x] = self.find(self.parent[x])\n        return self.parent[x]\n    def union(self, x, y):\n        px, py = self.find(x), self.find(y)\n        if px != py:\n            self.parent[py] = px\n# Usage\nuf = UnionFind(5)\nuf.union(0, 1)\nuf.union(1, 2)\nprint(uf.find(2))  # 0 (root of set containing 2)"
+        ]
+      }
+    ],
+    "Control Structures": [
+      {
+        "title": "Python Control Structures Guide",
+        "purpose": "Overview of Python's flow control constructs",
+        "syntax": "",
+        "examples": []
+      },
+      {
+        "title": "if-elif-else Statement",
+        "purpose": "Conditional execution based on boolean expressions",
+        "syntax": "if condition1: ... elif condition2: ... else: ...",
+        "examples": [
+          "# Basic if-elif-else statement\nx = 10\nif x > 15:\n    print(\"x is greater than 15\")\nelif x > 5:\n    print(\"x is greater than 5 but not greater than 15\")\nelse:\n    print(\"x is 5 or less\")\n\n# Ternary operator (one-line if-else)\ny = 20\nresult = \"even\" if y % 2 == 0 else \"odd\"\nprint(result)  # even\n\n# Nested if statements\nage = 25\nincome = 50000\nif age > 18:\n    if income > 40000:\n        print(\"Eligible for premium credit card\")\n    else:\n        print(\"Eligible for standard credit card\")\nelse:\n    print(\"Not eligible for credit card\")"
+        ]
+      },
+      {
+        "title": "for Loop",
+        "purpose": "Iterate over a sequence (list, tuple, string, etc.)",
+        "syntax": "for item in iterable: ...",
+        "examples": [
+          "# Iterate over a list\nfruits = ['apple', 'banana', 'cherry']\nfor fruit in fruits:\n    print(fruit)\n\n# Iterate over a range\nfor i in range(5):  # 0 to 4\n    print(i)\n\n# Iterate with index using enumerate\nfor index, fruit in enumerate(fruits):\n    print(f\"{index}: {fruit}\")\n\n# Iterate over dictionary\nperson = {'name': 'John', 'age': 30, 'city': 'New York'}\nfor key in person:\n    print(f\"{key}: {person[key]}\")\n\n# Iterate over items (key-value pairs)\nfor key, value in person.items():\n    print(f\"{key}: {value}\")\n\n# Nested for loops\nfor i in range(1, 4):\n    for j in range(1, 4):\n        print(f\"({i}, {j})\")"
+        ]
+      },
+      {
+        "title": "while Loop",
+        "purpose": "Execute block of code as long as a condition is true",
+        "syntax": "while condition: ...",
+        "examples": [
+          "# Basic while loop\ncount = 0\nwhile count < 5:\n    print(count)\n    count += 1\n\n# while loop with break\nnum = 0\nwhile True:  # Infinite loop\n    print(num)\n    num += 1\n    if num >= 5:\n        break  # Exit the loop\n\n# while loop with continue\nnum = 0\nwhile num < 10:\n    num += 1\n    if num % 2 == 0:  # If even\n        continue  # Skip the rest of the loop body\n    print(num)  # Only print odd numbers\n\n# do-while equivalent in Python\n# Python doesn't have a built-in do-while loop, but we can simulate it\nnum = 0\nwhile True:\n    print(num)\n    num += 1\n    if num >= 5:\n        break"
+        ]
+      },
+      {
+        "title": "break, continue, and pass",
+        "purpose": "Control flow within loops",
+        "syntax": "break, continue, pass",
+        "examples": [
+          "# break: exit the loop immediately\nfor i in range(10):\n    if i == 5:\n        break\n    print(i)  # Prints 0, 1, 2, 3, 4\n\n# continue: skip to the next iteration\nfor i in range(10):\n    if i % 2 == 0:  # If even\n        continue\n    print(i)  # Prints only odd numbers: 1, 3, 5, 7, 9\n\n# pass: do nothing (placeholder)\ndef my_function():\n    pass  # Will be implemented later\n\nfor i in range(5):\n    pass  # Loop does nothing"
+        ]
+      },
+      {
+        "title": "match-case Statement (Python 3.10+)",
+        "purpose": "Structural pattern matching (similar to switch-case)",
+        "syntax": "match expression: case pattern1: ... case pattern2: ...",
+        "examples": [
+          "# Only works in Python 3.10 or newer\n\n# Basic pattern matching\ndef check_status(status):\n    match status:\n        case 200:\n            return \"OK\"\n        case 404:\n            return \"Not Found\"\n        case 500:\n            return \"Server Error\"\n        case _:  # Default case\n            return \"Unknown\"\n\nprint(check_status(200))  # OK\n\n# Pattern matching with capture variables\ndef process_command(command):\n    match command.split():\n        case [\"quit\"]:\n            return \"Exiting...\"\n        case [\"load\", filename]:\n            return f\"Loading {filename}\"\n        case [\"save\", filename]:\n            return f\"Saving {filename}\"\n        case _:\n            return \"Unknown command\"\n\nprint(process_command(\"save document.txt\"))  # Saving document.txt"
+        ]
+      },
+      {
+        "title": "try-except-else-finally",
+        "purpose": "Exception handling",
+        "syntax": "try: ... except ExceptionType: ... else: ... finally: ...",
+        "examples": [
+          "# Basic try-except\ntry:\n    result = 10 / 0\nexcept ZeroDivisionError:\n    print(\"Cannot divide by zero\")\n\n# Multiple except blocks\ntry:\n    num = int(\"abc\")\nexcept ValueError:\n    print(\"Invalid integer\")\nexcept (TypeError, NameError) as e:  # Catching multiple exceptions\n    print(f\"Error: {type(e).__name__}: {e}\")\n\n# try-except-else-finally\ntry:\n    num = int(\"123\")\nexcept ValueError:\n    print(\"Invalid integer\")\nelse:  # Executes if no exception\n    print(f\"Converted successfully: {num}\")\nfinally:  # Always executes\n    print(\"End of try-except block\")\n\n# Custom exceptions\nclass CustomError(Exception):\n    pass\n\ntry:\n    raise CustomError(\"This is a custom error\")\nexcept CustomError as e:\n    print(e)"
+        ]
+      },
+      {
+        "title": "with Statement (Context Manager)",
+        "purpose": "Resource management with automatic cleanup",
+        "syntax": "with expression as variable: ...",
+        "examples": [
+          "# File handling with 'with' (automatically closes file)\nwith open('example.txt', 'w') as f:\n    f.write('Hello, World!')\n\n# Multiple context managers\nwith open('input.txt', 'r') as infile, open('output.txt', 'w') as outfile:\n    data = infile.read()\n    outfile.write(data)\n\n# Custom context manager\nfrom contextlib import contextmanager\n\n@contextmanager\ndef my_context():\n    print(\"Starting\")\n    try:\n        yield \"Value\"  # This value is assigned to the 'as' variable\n    finally:\n        print(\"Cleaning up\")\n\nwith my_context() as value:\n    print(f\"Inside with block, value: {value}\")"
+        ]
+      },
+      {
+        "title": "Comprehensions",
+        "purpose": "Concise way to create lists, dictionaries, and sets",
+        "syntax": "[expression for item in iterable if condition]",
+        "examples": [
+          "# List comprehension\nsquares = [x**2 for x in range(10)]\nprint(squares)  # [0, 1, 4, 9, 16, 25, 36, 49, 64, 81]\n\n# List comprehension with if condition\neven_squares = [x**2 for x in range(10) if x % 2 == 0]\nprint(even_squares)  # [0, 4, 16, 36, 64]\n\n# Dictionary comprehension\nsquare_dict = {x: x**2 for x in range(5)}\nprint(square_dict)  # {0: 0, 1: 1, 2: 4, 3: 9, 4: 16}\n\n# Set comprehension\nsquare_set = {x**2 for x in range(5)}\nprint(square_set)  # {0, 1, 4, 9, 16}"
+        ]
+      }
+    ],
+    "Database Operations": [
+      {
+        "title": "Python Database Operations Guide",
+        "purpose": "Connect to and work with databases in Python",
+        "syntax": "",
+        "examples": []
+      },
+      {
+        "title": "SQLite Connection",
+        "purpose": "Connect to an SQLite database (built-in)",
+        "syntax": "import sqlite3",
+        "examples": [
+          "# SQLite - built-in, no external dependencies required\nimport sqlite3\n\n# Connect to database (creates file if it doesn't exist)\nconn = sqlite3.connect('example.db')\ncursor = conn.cursor()\n\n# Create a table\ncursor.execute('''CREATE TABLE IF NOT EXISTS users\n             (id INTEGER PRIMARY KEY, name TEXT, email TEXT)''')\n\n# Insert a row\ncursor.execute(\"INSERT INTO users (name, email) VALUES (?, ?)\",\n              ('Alice', 'alice@example.com'))\n\n# Insert multiple rows\nusers = [('Bob', 'bob@example.com'), ('Charlie', 'charlie@example.com')]\ncursor.executemany(\"INSERT INTO users (name, email) VALUES (?, ?)\", users)\n\n# Commit changes\nconn.commit()\n\n# Query the database\ncursor.execute(\"SELECT * FROM users\")\nrows = cursor.fetchall()\nfor row in rows:\n    print(row)\n\n# Close the connection (always do this when done!)\nconn.close()"
+        ]
+      },
+      {
+        "title": "PostgreSQL Connection using psycopg2",
+        "purpose": "Connect to PostgreSQL database",
+        "syntax": "import psycopg2",
+        "examples": [
+          "# PostgreSQL with psycopg2\n# Install first: pip install psycopg2-binary\nimport psycopg2\n\ntry:\n    # Connect to the database\n    conn = psycopg2.connect(\n        dbname=\"mydatabase\",\n        user=\"myuser\",\n        password=\"mypassword\",\n        host=\"localhost\",\n        port=\"5432\"\n    )\n    \n    # Create a cursor\n    cursor = conn.cursor()\n    \n    # Create a table\n    cursor.execute('''\n    CREATE TABLE IF NOT EXISTS employees (\n        id SERIAL PRIMARY KEY,\n        name VARCHAR(100) NOT NULL,\n        department VARCHAR(50),\n        salary NUMERIC(10, 2)\n    )''')\n    \n    # Insert data\n    cursor.execute(\n        \"INSERT INTO employees (name, department, salary) VALUES (%s, %s, %s)\",\n        (\"John Doe\", \"Engineering\", 75000)\n    )\n    \n    # Insert multiple rows\n    employees = [\n        (\"Jane Smith\", \"Marketing\", 65000),\n        (\"Robert Brown\", \"HR\", 60000),\n        (\"Lisa Johnson\", \"Engineering\", 78000)\n    ]\n    cursor.executemany(\n        \"INSERT INTO employees (name, department, salary) VALUES (%s, %s, %s)\",\n        employees\n    )\n    \n    # Commit changes\n    conn.commit()\n    \n    # Query data\n    cursor.execute(\"SELECT * FROM employees WHERE department = %s\", (\"Engineering\",))\n    rows = cursor.fetchall()\n    for row in rows:\n        print(row)\n    \n    # Close cursor and connection\n    cursor.close()\n    conn.close()\n    \nexcept psycopg2.Error as e:\n    print(f\"Error: {e}\")"
+        ]
+      },
+      {
+        "title": "MySQL Connection using mysql-connector-python",
+        "purpose": "Connect to MySQL database",
+        "syntax": "import mysql.connector",
+        "examples": [
+          "# MySQL with mysql-connector-python\n# Install first: pip install mysql-connector-python\nimport mysql.connector\n\ntry:\n    # Connect to MySQL server\n    conn = mysql.connector.connect(\n        host=\"localhost\",\n        user=\"myuser\",\n        password=\"mypassword\",\n        database=\"mydatabase\"\n    )\n    \n    # Create a cursor\n    cursor = conn.cursor()\n    \n    # Create a table\n    cursor.execute('''\n    CREATE TABLE IF NOT EXISTS products (\n        id INT AUTO_INCREMENT PRIMARY KEY,\n        name VARCHAR(100) NOT NULL,\n        price DECIMAL(10, 2),\n        category VARCHAR(50)\n    )''')\n    \n    # Insert a product\n    sql = \"INSERT INTO products (name, price, category) VALUES (%s, %s, %s)\"\n    val = (\"Laptop\", 999.99, \"Electronics\")\n    cursor.execute(sql, val)\n    \n    # Insert multiple products\n    products = [\n        (\"Phone\", 499.99, \"Electronics\"),\n        (\"Desk\", 199.99, \"Furniture\"),\n        (\"Chair\", 89.99, \"Furniture\")\n    ]\n    cursor.executemany(sql, products)\n    \n    # Commit the changes\n    conn.commit()\n    print(f\"Inserted {cursor.rowcount} rows.\")\n    \n    # Query with filtering and sorting\n    cursor.execute(\"SELECT * FROM products WHERE category = %s ORDER BY price DESC\",\n                  (\"Electronics\",))\n    \n    # Fetch results\n    products = cursor.fetchall()\n    for product in products:\n        print(product)\n    \n    # Close cursor and connection\n    cursor.close()\n    conn.close()\n    \nexcept mysql.connector.Error as e:\n    print(f\"Error: {e}\")"
+        ]
+      },
+      {
+        "title": "Using SQL Alchemy ORM",
+        "purpose": "Object-Relational Mapping with SQLAlchemy",
+        "syntax": "from sqlalchemy import create_engine, Column, Integer, String, etc.",
+        "examples": [
+          "# SQLAlchemy ORM example\n# Install first: pip install sqlalchemy\nfrom sqlalchemy import create_engine, Column, Integer, String, Float, ForeignKey\nfrom sqlalchemy.ext.declarative import declarative_base\nfrom sqlalchemy.orm import sessionmaker, relationship\n\n# Create the base class for declarative models\nBase = declarative_base()\n\n# Define models\nclass Category(Base):\n    __tablename__ = 'categories'\n    \n    id = Column(Integer, primary_key=True)\n    name = Column(String(50), nullable=False, unique=True)\n    \n    # Relationship with Product\n    products = relationship(\"Product\", back_populates=\"category\")\n    \n    def __repr__(self):\n        return f\"<Category(name='{self.name}')>\"\n\nclass Product(Base):\n    __tablename__ = 'products'\n    \n    id = Column(Integer, primary_key=True)\n    name = Column(String(100), nullable=False)\n    price = Column(Float)\n    category_id = Column(Integer, ForeignKey('categories.id'))\n    \n    # Relationship with Category\n    category = relationship(\"Category\", back_populates=\"products\")\n    \n    def __repr__(self):\n        return f\"<Product(name='{self.name}', price={self.price})>\"\n\n# Create engine and tables\nengine = create_engine('sqlite:///sqlalchemy_example.db')\nBase.metadata.create_all(engine)\n\n# Create session\nSession = sessionmaker(bind=engine)\nsession = Session()\n\n# Add data\ntry:\n    # Add categories\n    electronics = Category(name=\"Electronics\")\n    clothing = Category(name=\"Clothing\")\n    session.add_all([electronics, clothing])\n    session.commit()\n    \n    # Add products\n    laptop = Product(name=\"Laptop\", price=999.99, category=electronics)\n    phone = Product(name=\"Smartphone\", price=499.99, category=electronics)\n    tshirt = Product(name=\"T-Shirt\", price=19.99, category=clothing)\n    session.add_all([laptop, phone, tshirt])\n    session.commit()\n    \n    # Query data\n    # Get all products in a category\n    electronics_products = session.query(Product).join(Category).filter(Category.name == \"Electronics\").all()\n    print(\"\\nElectronics products:\")\n    for product in electronics_products:\n        print(f\"{product.name}: ${product.price}\")\n    \n    # Filter products by price\n    expensive_products = session.query(Product).filter(Product.price > 400).all()\n    print(\"\\nExpensive products:\")\n    for product in expensive_products:\n        print(f\"{product.name}: ${product.price} ({product.category.name})\")\n    \n    # Update a product\n    laptop = session.query(Product).filter(Product.name == \"Laptop\").one()\n    laptop.price = 899.99\n    session.commit()\n    \n    # Delete a product\n    tshirt = session.query(Product).filter(Product.name == \"T-Shirt\").one()\n    session.delete(tshirt)\n    session.commit()\n    \nexcept Exception as e:\n    print(f\"Error: {e}\")\n    session.rollback()\nfinally:\n    session.close()"
+        ]
+      },
+      {
+        "title": "Connecting to PostgreSQL with pgAdmin",
+        "purpose": "Using psycopg2 to connect to PostgreSQL servers managed in pgAdmin",
+        "syntax": "import psycopg2",
+        "examples": [
+          "# Connecting to PostgreSQL database that's managed in pgAdmin\n# 1. First setup your PostgreSQL server and database in pgAdmin\n# 2. Create tables and users through pgAdmin interface if desired\n# 3. Connect from Python using connection details from pgAdmin\n\n# Install psycopg2 first: pip install psycopg2-binary\nimport psycopg2\nimport psycopg2.extras  # For returning dictionaries instead of tuples\n\n# Connection details from pgAdmin\nDB_HOST = \"localhost\"\nDB_NAME = \"my_database\"  # The database name you created in pgAdmin\nDB_USER = \"postgres\"     # Default is often 'postgres'\nDB_PASS = \"password\"     # Password you set in pgAdmin\nDB_PORT = \"5432\"         # Default PostgreSQL port\n\ntry:\n    # Connect using connection details from pgAdmin\n    conn = psycopg2.connect(\n        dbname=DB_NAME,\n        user=DB_USER,\n        password=DB_PASS,\n        host=DB_HOST,\n        port=DB_PORT\n    )\n    \n    # Create cursor that returns results as dictionaries\n    cursor = conn.cursor(cursor_factory=psycopg2.extras.DictCursor)\n    \n    # Example: Check for existing tables (that you might have created in pgAdmin)\n    cursor.execute(\"\"\"\n    SELECT table_name \n    FROM information_schema.tables \n    WHERE table_schema = 'public'\n    \"\"\")\n    \n    tables = cursor.fetchall()\n    if tables:\n        print(\"Existing tables:\")\n        for table in tables:\n            print(f\"- {table['table_name']}\")\n    else:\n        print(\"No tables found. Creating a sample table...\")\n        cursor.execute(\"\"\"\n        CREATE TABLE customers (\n            id SERIAL PRIMARY KEY,\n            name VARCHAR(100) NOT NULL,\n            email VARCHAR(100) UNIQUE NOT NULL,\n            created_at TIMESTAMP DEFAULT CURRENT_TIMESTAMP\n        )\"\"\")\n        conn.commit()\n    \n    # Example query with parameterized inputs (prevents SQL injection)\n    cursor.execute(\"\"\"\n    INSERT INTO customers (name, email) VALUES (%s, %s) \n    ON CONFLICT (email) DO NOTHING\n    RETURNING id, name, email\n    \"\"\", (\"John Smith\", \"john@example.com\"))\n    \n    new_customer = cursor.fetchone()\n    if new_customer:\n        print(f\"Added new customer: {dict(new_customer)}\")\n    else:\n        print(\"Customer already exists or there was an issue.\")\n    \n    conn.commit()\n    \n    # Close cursor and connection\n    cursor.close()\n    conn.close()\n\nexcept psycopg2.Error as e:\n    print(f\"PostgreSQL Error: {e}\")"
+        ]
+      },
+      {
+        "title": "Database Connection Pooling",
+        "purpose": "Efficient database connection management for web applications",
+        "syntax": "Various implementations depending on database",
+        "examples": [
+          "# Connection pooling with psycopg2 and pooling libraries\n# Install: pip install psycopg2-binary psycopg2-pool\n\nimport psycopg2\nfrom psycopg2 import pool\n\n# Create a connection pool\ntry:\n    # Initialize the connection pool\n    connection_pool = pool.SimpleConnectionPool(\n        minconn=1,       # Minimum connections\n        maxconn=10,      # Maximum connections\n        dbname=\"testdb\",\n        user=\"postgres\",\n        password=\"password\",\n        host=\"localhost\"\n    )\n    \n    # Function to get a connection from the pool\n    def get_connection():\n        return connection_pool.getconn()\n    \n    # Function to release a connection back to the pool\n    def release_connection(conn):\n        connection_pool.putconn(conn)\n    \n    # Use a connection from the pool\n    conn = get_connection()\n    cursor = conn.cursor()\n    \n    # Execute a query\n    cursor.execute(\"SELECT version();\")\n    version = cursor.fetchone()\n    print(f\"PostgreSQL version: {version[0]}\")\n    \n    # Clean up\n    cursor.close()\n    release_connection(conn)  # Return connection to the pool\n    \n    # Get another connection for another operation\n    conn2 = get_connection()\n    # ... do something else ...\n    release_connection(conn2)\n    \n    # When application exits, close the pool\n    if connection_pool:\n        connection_pool.closeall()\n    print(\"All pool connections closed\")\n    \nexcept (Exception, psycopg2.Error) as error:\n    print(f\"Error: {error}\")"
+        ]
+      }
+    ],
+    "Basic Functions and Input/Output": [
+      {
+        "title": "Print Output",
+        "purpose": "Display output to the console.",
+        "syntax": "print(value, ..., sep=' ', end='\\n', file=sys.stdout, flush=False)",
+        "examples": [
+          "print('Hello, World!')  # Hello, World!\nprint('A', 'B', 'C', sep='-', end='!')  # A-B-C!\n# Print to a file\nwith open('out.txt', 'w') as f:\n    print('File output', file=f)"
+        ]
+      },
+      {
+        "title": "Input from User",
+        "purpose": "Read a line of input from the user as a string.",
+        "syntax": "input(prompt=None)",
+        "examples": [
+          "name = input('Enter your name: ')\nprint(f'Hello, {name}!')\n# Input always returns a string\nage = input('Enter age: ')\nprint(type(age))  # <class 'str'>"
+        ]
+      },
+      {
+        "title": "Convert Input to Integer/Float",
+        "purpose": "Convert string input to int or float.",
+        "syntax": "int(input()), float(input())",
+        "examples": [
+          "num = int(input('Enter a number: '))\nprint(num + 5)\n# Float input\nf = float(input('Enter a float: '))\nprint(f * 2)"
+        ]
+      },
+      {
+        "title": "Convert Input to List",
+        "purpose": "Convert space/comma-separated input to a list.",
+        "syntax": "input().split(), input().split(',')",
+        "examples": [
+          "# Space-separated\nnums = input('Enter numbers: ').split()\nprint(nums)  # ['1', '2', '3']\n# Convert to int\nnums = list(map(int, input('Enter numbers: ').split()))\nprint(nums)  # [1, 2, 3]\n# Comma-separated\nwords = input('Enter words: ').split(',')\nprint(words)  # ['a', 'b', 'c']"
+        ]
+      },
+      {
+        "title": "Convert Input to Dictionary",
+        "purpose": "Convert input string to dictionary using eval or parsing.",
+        "syntax": "eval(input()), json.loads(input())",
+        "examples": [
+          "# Input: {'a': 1, 'b': 2}\nd = eval(input('Enter dict: '))\nprint(d['a'])\n# Safer: use json\nimport json\nd = json.loads(input('Enter JSON dict: '))\nprint(d)"
+        ]
+      },
+      {
+        "title": "Type Conversion",
+        "purpose": "Convert between types: int, float, str, list, tuple, dict, set.",
+        "syntax": "int(x), float(x), str(x), list(x), tuple(x), dict(x), set(x)",
+        "examples": [
+          "int('42')  # 42\nfloat('3.14')  # 3.14\nstr(123)  # '123'\nlist('abc')  # ['a', 'b', 'c']\ntuple([1,2,3])  # (1, 2, 3)\ndict([('a', 1), ('b', 2)])  # {'a': 1, 'b': 2}\nset([1,2,2,3])  # {1, 2, 3}"
+        ]
+      },
+      {
+        "title": "Multiple Assignment and Unpacking",
+        "purpose": "Assign multiple variables at once, unpack iterables.",
+        "syntax": "a, b = 1, 2; a, b, *rest = [1,2,3,4]",
+        "examples": [
+          "a, b = 1, 2\nprint(a, b)  # 1 2\na, b, *rest = [1, 2, 3, 4]\nprint(rest)  # [3, 4]\n# Swap variables\nx, y = 5, 10\nx, y = y, x\nprint(x, y)  # 10 5"
+        ]
+      },
+      {
+        "title": "Check Type of Variable",
+        "purpose": "Check the type of a variable.",
+        "syntax": "type(x), isinstance(x, type)",
+        "examples": [
+          "x = 5\nprint(type(x))  # <class 'int'>\nprint(isinstance(x, int))  # True\nprint(isinstance([1,2,3], list))  # True"
+        ]
+      },
+      {
+        "title": "Basic Function Definition",
+        "purpose": "Define and call a function.",
+        "syntax": "def func(args): ...; func()",
+        "examples": [
+          "def greet(name):\n    print(f'Hello, {name}!')\ngreet('Alice')  # Hello, Alice!\n# Function with default argument\ndef add(a, b=10):\n    return a + b\nprint(add(5))  # 15"
+        ]
+      },
+      {
+        "title": "Lambda (Anonymous) Functions",
+        "purpose": "Create small anonymous functions.",
+        "syntax": "lambda args: expression",
+        "examples": [
+          "add = lambda x, y: x + y\nprint(add(2, 3))  # 5\n# Use with map/filter\nnums = [1, 2, 3]\nsquares = list(map(lambda x: x**2, nums))\nprint(squares)  # [1, 4, 9]"
+        ]
+      }
+    ],
+    "Common Programming Problems": [
+      {
+        "title": "Python Machine Problems Guide",
+        "purpose": "",
+        "syntax": "",
+        "examples": []
+      },
+      {
+        "title": "Fibonacci Sequence",
+        "purpose": "Generate Fibonacci sequence up to n",
+        "syntax": "fib(n)",
+        "examples": [
+          "# Recursive Fibonacci\ndef fib(n):\n    return n if n <= 1 else fib(n-1) + fib(n-2)\n\n# Iterative Fibonacci\ndef fib_seq(n):\n    seq = [0, 1]\n    while seq[-1] + seq[-2] <= n:\n        seq.append(seq[-1] + seq[-2])\n    return seq[:-1]\n\nprint(fib(5))  # 5\nprint(fib_seq(10))  # [0, 1, 1, 2, 3, 5, 8]"
+        ]
+      },
+      {
+        "title": "Factorial",
+        "purpose": "Calculate the factorial of a number",
+        "syntax": "factorial(n)",
+        "examples": [
+          "# Recursive factorial\ndef factorial(n):\n    return 1 if n == 0 else n * factorial(n-1)\n\n# Iterative factorial\ndef factorial_iter(n):\n    result = 1\n    for i in range(2, n+1):\n        result *= i\n    return result\n\nprint(factorial(5))  # 120\nprint(factorial_iter(5))  # 120"
+        ]
+      },
+      {
+        "title": "Prime Number Check",
+        "purpose": "Check if a number is prime",
+        "syntax": "is_prime(n)",
+        "examples": [
+          "# Check if a number is prime\ndef is_prime(n):\n    if n <= 1:\n        return False\n    for i in range(2, int(n**0.5) + 1):\n        if n % i == 0:\n            return False\n    return True\n\n# Print prime numbers up to n\nfor num in range(1, 21):\n    if is_prime(num):\n        print(num, end=' ')  # 2 3 5 7 11 13 17 19"
+        ]
+      },
+      {
+        "title": "Palindrome (String, Number, Cleaned)",
+        "purpose": "Check if a string or number is a palindrome, with variations.",
+        "syntax": "def is_palindrome(s): ...",
+        "examples": [
+          "# Palindrome check for string\ndef is_palindrome(s):\n    return s == s[::-1]\nprint(is_palindrome('racecar'))  # True\nprint(is_palindrome('hello'))    # False\n\n# Palindrome check for number\ndef is_palindrome_num(n):\n    return str(n) == str(n)[::-1]\nprint(is_palindrome_num(121))    # True\nprint(is_palindrome_num(123))    # False\n\n# Palindrome ignoring non-alphanumeric and case\nimport re\ndef is_palindrome_clean(s):\n    s = re.sub(r'[^a-zA-Z0-9]', '', s).lower()\n    return s == s[::-1]\nprint(is_palindrome_clean('A man, a plan, a canal: Panama'))  # True\nprint(is_palindrome_clean('No lemon, no melon'))  # True"
+        ]
+      }
+    ],
+    "Patterns": [
+      {
+        "title": "Count Elements in a List (collections.Counter)",
+        "purpose": "Count the frequency of each element in a list.",
+        "syntax": "from collections import Counter\ncnt = Counter(list)",
+        "examples": [
+          "from collections import Counter\ncnt = Counter(['a', 'b', 'a', 'c'])\nprint(cnt['a'])  # 2\nprint(cnt)  # Counter({'a': 2, 'b': 1, 'c': 1})"
+        ]
+      },
+      {
+        "title": "Find Max/Min Value and Index",
+        "purpose": "Find the maximum or minimum value in a list and its index.",
+        "syntax": "max(list), min(list), list.index(value)",
+        "examples": [
+          "arr = [4, 1, 7]\nmax_val = max(arr)\nmax_idx = arr.index(max_val)\nprint(max_val)  # 7\nprint(max_idx)  # 2\nmin_val = min(arr)\nmin_idx = arr.index(min_val)\nprint(min_val)  # 1\nprint(min_idx)  # 1"
+        ]
+      },
+      {
+        "title": "Sort by Custom Key",
+        "purpose": "Sort a list of tuples or objects by a custom key.",
+        "syntax": "list.sort(key=lambda x: ...)",
+        "examples": [
+          "pairs = [(1, 2), (3, 1), (2, 4)]\npairs.sort(key=lambda x: x[1])  # sort by second value\nprint(pairs)  # [(3, 1), (1, 2), (2, 4)]"
+        ]
+      }
+    ],
+    "Math": [
+      {
+        "title": "Common Math Operations",
+        "purpose": "Frequently used math and logic operations in Python.",
+        "syntax": "import math\nmath.sqrt(x), math.ceil(x), math.floor(x), pow(x, y), abs(x), max(...), min(...), sum(list)",
+        "examples": [
+          "import math\nprint(math.sqrt(25))    # 5.0\nprint(math.ceil(3.2))   # 4\nprint(math.floor(3.7))  # 3\nprint(pow(2, 3))        # 8\nprint(abs(-10))         # 10\nprint(max(1, 2, 3))     # 3\nprint(min(1, 2, 3))     # 1\nprint(sum([1, 2, 3]))   # 6"
+        ]
+      }
+    ]
+  }
+}

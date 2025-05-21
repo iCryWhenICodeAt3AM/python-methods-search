@@ -1,0 +1,1010 @@
+{
+  "references": [
+    {
+      "title": "Python Data Structure Manipulations Guide",
+      "content": "Python Data Structure Manipulations Guide\n=======================================\n\nThis file contains examples and explanations of advanced data structure manipulations,\nlist comprehensions, and data type operations in Python.",
+      "category": "Data Manipulations",
+      "tags": [
+        "example"
+      ]
+    },
+    {
+      "title": "Basic List Comprehension",
+      "content": "Basic List Comprehension\n--------\nPurpose: Create a new list by applying an expression to each item in an iterable\nHow to use: [expression for item in iterable]\nUsable for: Lists, tuples, strings, and other iterables\nSample usage:\n    # Square numbers\n    numbers = [1, 2, 3, 4, 5]\n    squares = [n**2 for n in numbers]  # Returns [1, 4, 9, 16, 25]\n    \n    # Convert to uppercase\n    words = ['hello', 'world']\n    upper_words = [word.upper() for word in words]  # Returns ['HELLO', 'WORLD']",
+      "category": "Data Manipulations",
+      "tags": [
+        "how-to",
+        "purpose"
+      ]
+    },
+    {
+      "title": "List Comprehension with Condition",
+      "content": "List Comprehension with Condition\n--------\nPurpose: Create a new list by applying an expression to filtered items\nHow to use: [expression for item in iterable if condition]\nUsable for: Lists, tuples, strings, and other iterables\nSample usage:\n    # Even numbers only\n    numbers = [1, 2, 3, 4, 5, 6]\n    evens = [n for n in numbers if n % 2 == 0]  # Returns [2, 4, 6]\n    \n    # Words longer than 3 characters\n    words = ['cat', 'dog', 'elephant', 'bird']\n    long_words = [word for word in words if len(word) > 3]  # Returns ['elephant', 'bird']",
+      "category": "Data Manipulations",
+      "tags": [
+        "how-to",
+        "purpose"
+      ]
+    },
+    {
+      "title": "Nested List Comprehension",
+      "content": "Nested List Comprehension\n--------\nPurpose: Create a new list using nested loops\nHow to use: [expression for item1 in iterable1 for item2 in iterable2]\nUsable for: Nested data structures\nSample usage:\n    # Create a multiplication table\n    table = [[i * j for j in range(1, 4)] for i in range(1, 4)]\n    # Returns [[1, 2, 3], [2, 4, 6], [3, 6, 9]]\n    \n    # Flatten a 2D list\n    matrix = [[1, 2, 3], [4, 5, 6], [7, 8, 9]]\n    flat = [num for row in matrix for num in row]  # Returns [1, 2, 3, 4, 5, 6, 7, 8, 9]",
+      "category": "Data Manipulations",
+      "tags": [
+        "how-to",
+        "purpose"
+      ]
+    },
+    {
+      "title": "Generator Expressions",
+      "content": "Generator Expressions\n--------\nPurpose: Create an iterator that generates values on demand\nHow to use: (expression for item in iterable)\nUsable for: Large datasets where memory efficiency is important\nSample usage:\n    # Sum of squares\n    numbers = [1, 2, 3, 4, 5]\n    sum_squares = sum(n**2 for n in numbers)  # Returns 55\n    \n    # Find first match\n    numbers = [1, 2, 3, 4, 5]\n    first_even = next(n for n in numbers if n % 2 == 0)  # Returns 2",
+      "category": "Data Manipulations",
+      "tags": [
+        "how-to",
+        "purpose"
+      ]
+    },
+    {
+      "title": "Basic Dictionary Comprehension",
+      "content": "Basic Dictionary Comprehension\n--------\nPurpose: Create a new dictionary by applying expressions to keys and values\nHow to use: {key_expression: value_expression for item in iterable}\nUsable for: Lists, tuples, and other iterables\nSample usage:\n    # Square numbers as dictionary\n    numbers = [1, 2, 3, 4, 5]\n    squares_dict = {n: n**2 for n in numbers}\n    # Returns {1: 1, 2: 4, 3: 9, 4: 16, 5: 25}\n    \n    # Word lengths\n    words = ['cat', 'dog', 'elephant']\n    length_dict = {word: len(word) for word in words}\n    # Returns {'cat': 3, 'dog': 3, 'elephant': 8}",
+      "category": "Data Manipulations",
+      "tags": [
+        "how-to",
+        "purpose"
+      ]
+    },
+    {
+      "title": "Dictionary Comprehension with Condition",
+      "content": "Dictionary Comprehension with Condition\n--------\nPurpose: Create a new dictionary with filtered items\nHow to use: {key: value for item in iterable if condition}\nUsable for: Lists, tuples, and other iterables\nSample usage:\n    # Only even numbers\n    numbers = [1, 2, 3, 4, 5, 6]\n    even_squares = {n: n**2 for n in numbers if n % 2 == 0}\n    # Returns {2: 4, 4: 16, 6: 36}\n    \n    # Words longer than 3 characters\n    words = ['cat', 'dog', 'elephant', 'bird']\n    long_words = {word: len(word) for word in words if len(word) > 3}\n    # Returns {'elephant': 8, 'bird': 4}",
+      "category": "Data Manipulations",
+      "tags": [
+        "how-to",
+        "purpose"
+      ]
+    },
+    {
+      "title": "Set Comprehension",
+      "content": "Set Comprehension\n--------\nPurpose: Create a new set by applying an expression to each item\nHow to use: {expression for item in iterable}\nUsable for: Lists, tuples, strings, and other iterables\nSample usage:\n    # Unique squares\n    numbers = [1, 2, 2, 3, 3, 3]\n    unique_squares = {n**2 for n in numbers}  # Returns {1, 4, 9}\n    \n    # Unique word lengths\n    words = ['cat', 'dog', 'elephant', 'bird']\n    unique_lengths = {len(word) for word in words}  # Returns {3, 4, 8}",
+      "category": "Data Manipulations",
+      "tags": [
+        "how-to",
+        "purpose"
+      ]
+    },
+    {
+      "title": "List Operations with zip()",
+      "content": "List Operations with zip()\n--------\nPurpose: Combine multiple iterables into a single iterable of tuples\nHow to use: zip(iterable1, iterable2, ...)\nUsable for: Lists, tuples, and other iterables\nSample usage:\n    # Combine two lists\n    names = ['Alice', 'Bob', 'Charlie']\n    ages = [25, 30, 35]\n    combined = list(zip(names, ages))\n    # Returns [('Alice', 25), ('Bob', 30), ('Charlie', 35)]\n    \n    # Unzip\n    pairs = [('Alice', 25), ('Bob', 30), ('Charlie', 35)]\n    names, ages = zip(*pairs)\n    # Returns ('Alice', 'Bob', 'Charlie'), (25, 30, 35)",
+      "category": "Data Manipulations",
+      "tags": [
+        "how-to",
+        "purpose"
+      ]
+    },
+    {
+      "title": "List Operations with enumerate()",
+      "content": "List Operations with enumerate()\n--------\nPurpose: Add indices to iterable items\nHow to use: enumerate(iterable, start=0)\nUsable for: Lists, tuples, strings, and other iterables\nSample usage:\n    # Add indices to list\n    words = ['cat', 'dog', 'elephant']\n    indexed = list(enumerate(words))\n    # Returns [(0, 'cat'), (1, 'dog'), (2, 'elephant')]\n    \n    # Start from 1\n    indexed = list(enumerate(words, start=1))\n    # Returns [(1, 'cat'), (2, 'dog'), (3, 'elephant')]",
+      "category": "Data Manipulations",
+      "tags": [
+        "how-to",
+        "purpose"
+      ]
+    },
+    {
+      "title": "List Operations with filter()",
+      "content": "List Operations with filter()\n--------\nPurpose: Create an iterator of elements that satisfy a condition\nHow to use: filter(function, iterable)\nUsable for: Lists, tuples, and other iterables\nSample usage:\n    # Filter even numbers\n    numbers = [1, 2, 3, 4, 5, 6]\n    evens = list(filter(lambda x: x % 2 == 0, numbers))\n    # Returns [2, 4, 6]\n    \n    # Filter non-empty strings\n    words = ['', 'cat', '', 'dog', '']\n    non_empty = list(filter(None, words))\n    # Returns ['cat', 'dog']",
+      "category": "Data Manipulations",
+      "tags": [
+        "how-to",
+        "purpose"
+      ]
+    },
+    {
+      "title": "List Operations with map()",
+      "content": "List Operations with map()\n--------\nPurpose: Apply a function to each item in an iterable\nHow to use: map(function, iterable)\nUsable for: Lists, tuples, and other iterables\nSample usage:\n    # Square numbers\n    numbers = [1, 2, 3, 4, 5]\n    squares = list(map(lambda x: x**2, numbers))\n    # Returns [1, 4, 9, 16, 25]\n    \n    # Convert to uppercase\n    words = ['hello', 'world']\n    upper_words = list(map(str.upper, words))\n    # Returns ['HELLO', 'WORLD']",
+      "category": "Data Manipulations",
+      "tags": [
+        "how-to",
+        "purpose"
+      ]
+    },
+    {
+      "title": "Example: Complex Data Transformations",
+      "content": "Example: Complex Data Transformations\n--------\nSample usage:\n    # Create a dictionary of word frequencies\n    text = \"the quick brown fox jumps over the lazy dog\"\n    words = text.split()\n    word_freq = {word: words.count(word) for word in set(words)}\n    print(f\"Word frequencies: {word_freq}\")\n    \n    # Find common elements in two lists\n    list1 = [1, 2, 3, 4, 5]\n    list2 = [4, 5, 6, 7, 8]\n    common = [x for x in list1 if x in list2]\n    print(f\"Common elements: {common}\")\n    \n    # Create a matrix transpose\n    matrix = [[1, 2, 3], [4, 5, 6], [7, 8, 9]]\n    transpose = [[row[i] for row in matrix] for i in range(len(matrix[0]))]\n    print(f\"Transposed matrix: {transpose}\")\n    \n    # Group items by a key\n    items = [('apple', 'fruit'), ('banana', 'fruit'), ('carrot', 'vegetable')]\n    grouped = {}\n    for item, category in items:\n        grouped.setdefault(category, []).append(item)\n    print(f\"Grouped items: {grouped}\")",
+      "category": "Data Manipulations",
+      "tags": [
+        "example"
+      ]
+    },
+    {
+      "title": "Python List Operations and Data Handling Guide",
+      "content": "Python List Operations and Data Handling Guide\n============================================\n\nThis file contains examples and explanations of list operations,\ndata handling, and looping techniques in Python.",
+      "category": "List Operations",
+      "tags": [
+        "example"
+      ]
+    },
+    {
+      "title": "Creating Lists",
+      "content": "Creating Lists\n--------\nPurpose: Different ways to create and initialize lists\nHow to use: Various list creation methods\nSample usage:\n    # Empty list\n    empty_list = []\n    \n    # List with initial values\n    numbers = [1, 2, 3, 4, 5]\n    \n    # List comprehension\n    squares = [x**2 for x in range(5)]  # [0, 1, 4, 9, 16]\n    \n    # List from string\n    chars = list(\"Hello\")  # ['H', 'e', 'l', 'l', 'o']\n    \n    # List from range\n    numbers = list(range(5))  # [0, 1, 2, 3, 4]",
+      "category": "List Operations",
+      "tags": [
+        "how-to",
+        "purpose"
+      ]
+    },
+    {
+      "title": "Accessing List Elements",
+      "content": "Accessing List Elements\n--------\nPurpose: Get elements from a list using different methods\nHow to use: Indexing and slicing\nSample usage:\n    numbers = [1, 2, 3, 4, 5]\n    \n    # Get single element\n    first = numbers[0]  # 1\n    last = numbers[-1]  # 5\n    \n    # Slicing\n    first_three = numbers[:3]  # [1, 2, 3]\n    last_two = numbers[-2:]  # [4, 5]\n    middle = numbers[1:4]  # [2, 3, 4]\n    \n    # Step slicing\n    even_indices = numbers[::2]  # [1, 3, 5]\n    reverse = numbers[::-1]  # [5, 4, 3, 2, 1]",
+      "category": "List Operations",
+      "tags": [
+        "how-to",
+        "purpose"
+      ]
+    },
+    {
+      "title": "Adding Elements",
+      "content": "Adding Elements\n--------\nPurpose: Add elements to a list\nHow to use: Various methods to append or insert elements\nSample usage:\n    numbers = [1, 2, 3]\n    \n    # Append single element\n    numbers.append(4)  # [1, 2, 3, 4]\n    \n    # Extend with multiple elements\n    numbers.extend([5, 6])  # [1, 2, 3, 4, 5, 6]\n    \n    # Insert at specific position\n    numbers.insert(0, 0)  # [0, 1, 2, 3, 4, 5, 6]\n    \n    # List concatenation\n    numbers = numbers + [7, 8]  # [0, 1, 2, 3, 4, 5, 6, 7, 8]\n    \n    # Shorthand concatenation\n    numbers += [9, 10]  # [0, 1, 2, 3, 4, 5, 6, 7, 8, 9, 10]",
+      "category": "List Operations",
+      "tags": [
+        "how-to",
+        "purpose"
+      ]
+    },
+    {
+      "title": "Removing Elements",
+      "content": "Removing Elements\n--------\nPurpose: Remove elements from a list\nHow to use: Various methods to remove elements\nSample usage:\n    numbers = [1, 2, 3, 4, 5, 3]\n    \n    # Remove by value (first occurrence)\n    numbers.remove(3)  # [1, 2, 4, 5, 3]\n    \n    # Remove by index\n    popped = numbers.pop(1)  # numbers: [1, 4, 5, 3], popped: 2\n    \n    # Remove last element\n    last = numbers.pop()  # numbers: [1, 4, 5], last: 3\n    \n    # Clear all elements\n    numbers.clear()  # []\n    \n    # Delete by index\n    numbers = [1, 2, 3, 4, 5]\n    del numbers[1:3]  # [1, 4, 5]",
+      "category": "List Operations",
+      "tags": [
+        "how-to",
+        "purpose"
+      ]
+    },
+    {
+      "title": "Updating Elements",
+      "content": "Updating Elements\n--------\nPurpose: Modify elements in a list\nHow to use: Direct assignment and list methods\nSample usage:\n    numbers = [1, 2, 3, 4, 5]\n    \n    # Update single element\n    numbers[0] = 10  # [10, 2, 3, 4, 5]\n    \n    # Update slice\n    numbers[1:3] = [20, 30]  # [10, 20, 30, 4, 5]\n    \n    # Sort in place\n    numbers.sort()  # [4, 5, 10, 20, 30]\n    \n    # Reverse in place\n    numbers.reverse()  # [30, 20, 10, 5, 4]",
+      "category": "List Operations",
+      "tags": [
+        "how-to",
+        "purpose"
+      ]
+    },
+    {
+      "title": "List Comprehensions",
+      "content": "List Comprehensions\n--------\nPurpose: Create new lists using concise syntax\nHow to use: [expression for item in iterable if condition]\nSample usage:\n    # Basic comprehension\n    squares = [x**2 for x in range(5)]  # [0, 1, 4, 9, 16]\n    \n    # With condition\n    even_squares = [x**2 for x in range(10) if x % 2 == 0]  # [0, 4, 16, 36, 64]\n    \n    # Nested comprehension\n    matrix = [[i+j for j in range(3)] for i in range(3)]\n    # [[0, 1, 2], [1, 2, 3], [2, 3, 4]]",
+      "category": "List Operations",
+      "tags": [
+        "how-to",
+        "purpose"
+      ]
+    },
+    {
+      "title": "Generator Expressions",
+      "content": "Generator Expressions\n--------\nPurpose: Create memory-efficient iterators\nHow to use: (expression for item in iterable if condition)\nSample usage:\n    # Basic generator\n    squares = (x**2 for x in range(5))\n    # Use with next() or in loops\n    \n    # With condition\n    even_squares = (x**2 for x in range(10) if x % 2 == 0)\n    \n    # Convert to list if needed\n    squares_list = list(squares)",
+      "category": "List Operations",
+      "tags": [
+        "how-to",
+        "purpose"
+      ]
+    },
+    {
+      "title": "List Operations",
+      "content": "List Operations\n--------\nPurpose: Common operations on lists\nHow to use: Built-in functions and methods\nSample usage:\n    numbers = [1, 2, 3, 4, 5]\n    \n    # Length\n    length = len(numbers)  # 5\n    \n    # Count occurrences\n    count = numbers.count(3)  # 1\n    \n    # Find index\n    index = numbers.index(3)  # 2\n    \n    # Check membership\n    exists = 3 in numbers  # True\n    \n    # Sum, min, max\n    total = sum(numbers)  # 15\n    minimum = min(numbers)  # 1\n    maximum = max(numbers)  # 5",
+      "category": "List Operations",
+      "tags": [
+        "how-to",
+        "purpose"
+      ]
+    },
+    {
+      "title": "List Sorting",
+      "content": "List Sorting\n--------\nPurpose: Sort lists in different ways\nHow to use: sort() and sorted() methods\nSample usage:\n    numbers = [3, 1, 4, 1, 5, 9, 2, 6]\n    \n    # Sort in place\n    numbers.sort()  # [1, 1, 2, 3, 4, 5, 6, 9]\n    \n    # Sort in reverse\n    numbers.sort(reverse=True)  # [9, 6, 5, 4, 3, 2, 1, 1]\n    \n    # Create new sorted list\n    sorted_numbers = sorted(numbers)  # Original unchanged\n    \n    # Sort by key\n    words = ['apple', 'banana', 'cherry']\n    words.sort(key=len)  # ['apple', 'cherry', 'banana']",
+      "category": "List Operations",
+      "tags": [
+        "how-to",
+        "purpose"
+      ]
+    },
+    {
+      "title": "Basic Looping",
+      "content": "Basic Looping\n--------\nPurpose: Different ways to iterate over lists\nHow to use: for loops and while loops\nSample usage:\n    numbers = [1, 2, 3, 4, 5]\n    \n    # For loop\n    for num in numbers:\n        print(num)\n    \n    # While loop\n    i = 0\n    while i < len(numbers):\n        print(numbers[i])\n        i += 1\n    \n    # Enumerate\n    for index, value in enumerate(numbers):\n        print(f\"Index {index}: {value}\")\n    \n    # Range-based loop\n    for i in range(len(numbers)):\n        print(f\"Index {i}: {numbers[i]}\")",
+      "category": "List Operations",
+      "tags": [
+        "how-to",
+        "purpose"
+      ]
+    },
+    {
+      "title": "Advanced Looping",
+      "content": "Advanced Looping\n--------\nPurpose: Advanced iteration techniques\nHow to use: zip, enumerate, and other tools\nSample usage:\n    # Zip multiple lists\n    names = ['Alice', 'Bob', 'Charlie']\n    ages = [25, 30, 35]\n    for name, age in zip(names, ages):\n        print(f\"{name} is {age} years old\")\n    \n    # List comprehension with condition\n    even_numbers = [x for x in range(10) if x % 2 == 0]\n    \n    # Generator expression\n    sum_squares = sum(x**2 for x in range(10))\n    \n    # Filter\n    even_numbers = list(filter(lambda x: x % 2 == 0, range(10)))\n    \n    # Map\n    squares = list(map(lambda x: x**2, range(10)))",
+      "category": "List Operations",
+      "tags": [
+        "how-to",
+        "purpose"
+      ]
+    },
+    {
+      "title": "Example: List Manipulation Tasks",
+      "content": "Example: List Manipulation Tasks\n--------\nSample usage:\n    # Remove duplicates while preserving order\n    def remove_duplicates(lst):\n        return list(dict.fromkeys(lst))\n    \n    # Flatten nested list\n    def flatten(lst):\n        return [item for sublist in lst for item in sublist]\n    \n    # Group items by key\n    def group_by(lst, key_func):\n        groups = {}\n        for item in lst:\n            key = key_func(item)\n            if key not in groups:\n                groups[key] = []\n            groups[key].append(item)\n        return groups\n    \n    # Example usage\n    numbers = [1, 2, 2, 3, 3, 3, 4, 4, 4, 4]\n    unique = remove_duplicates(numbers)  # [1, 2, 3, 4]\n    \n    nested = [[1, 2], [3, 4], [5, 6]]\n    flat = flatten(nested)  # [1, 2, 3, 4, 5, 6]\n    \n    words = ['apple', 'banana', 'cherry', 'date']\n    by_length = group_by(words, len)  # {5: ['apple'], 6: ['banana', 'cherry'], 4: ['date']}",
+      "category": "List Operations",
+      "tags": [
+        "example"
+      ]
+    },
+    {
+      "title": "Python Methods Reference Guide",
+      "content": "Python Methods Reference Guide\n=============================\n\nThis file contains a comprehensive reference of commonly used Python methods and functions,\norganized by category with examples and usage notes.",
+      "category": "Methods Reference",
+      "tags": [
+        "example"
+      ]
+    },
+    {
+      "title": "sum()",
+      "content": "sum()\n--------\nPurpose: Calculate the sum of all items in an iterable\nHow to use: sum(iterable, start=0)\nUsable for: Lists, tuples, sets, and other iterables containing numbers\nSample usage:\n    numbers = [1, 2, 3, 4, 5]\n    total = sum(numbers)  # Returns 15\n    total_with_start = sum(numbers, 10)  # Returns 25",
+      "category": "Methods Reference",
+      "tags": [
+        "how-to",
+        "purpose"
+      ]
+    },
+    {
+      "title": "len()",
+      "content": "len()\n--------\nPurpose: Return the length (number of items) of an object\nHow to use: len(object)\nUsable for: Strings, lists, tuples, dictionaries, sets\nSample usage:\n    text = \"Hello\"\n    length = len(text)  # Returns 5\n    my_list = [1, 2, 3]\n    list_length = len(my_list)  # Returns 3",
+      "category": "Methods Reference",
+      "tags": [
+        "how-to",
+        "purpose"
+      ]
+    },
+    {
+      "title": "sorted()",
+      "content": "sorted()\n--------\nPurpose: Return a new sorted list from the items in iterable\nHow to use: sorted(iterable, key=None, reverse=False)\nUsable for: Lists, tuples, strings, and other iterables\nSample usage:\n    numbers = [3, 1, 4, 1, 5]\n    sorted_nums = sorted(numbers)  # Returns [1, 1, 3, 4, 5]\n    sorted_desc = sorted(numbers, reverse=True)  # Returns [5, 4, 3, 1, 1]",
+      "category": "Methods Reference",
+      "tags": [
+        "how-to",
+        "purpose"
+      ]
+    },
+    {
+      "title": "max() and min()",
+      "content": "max() and min()\n--------\nPurpose: Return the largest/smallest item in an iterable\nHow to use: max(iterable, key=None) or min(iterable, key=None)\nUsable for: Lists, tuples, sets, and other iterables\nSample usage:\n    numbers = [1, 2, 3, 4, 5]\n    maximum = max(numbers)  # Returns 5\n    minimum = min(numbers)  # Returns 1",
+      "category": "Methods Reference",
+      "tags": [
+        "how-to",
+        "purpose"
+      ]
+    },
+    {
+      "title": "append()",
+      "content": "append()\n--------\nPurpose: Add an element to the end of the list\nHow to use: list.append(element)\nUsable for: Lists\nSample usage:\n    my_list = [1, 2, 3]\n    my_list.append(4)  # my_list becomes [1, 2, 3, 4]",
+      "category": "Methods Reference",
+      "tags": [
+        "how-to",
+        "purpose"
+      ]
+    },
+    {
+      "title": "extend()",
+      "content": "extend()\n--------\nPurpose: Extend list by appending elements from the iterable\nHow to use: list.extend(iterable)\nUsable for: Lists\nSample usage:\n    list1 = [1, 2, 3]\n    list2 = [4, 5, 6]\n    list1.extend(list2)  # list1 becomes [1, 2, 3, 4, 5, 6]",
+      "category": "Methods Reference",
+      "tags": [
+        "how-to",
+        "purpose"
+      ]
+    },
+    {
+      "title": "insert()",
+      "content": "insert()\n--------\nPurpose: Insert an element at a specified position\nHow to use: list.insert(index, element)\nUsable for: Lists\nSample usage:\n    my_list = [1, 2, 3]\n    my_list.insert(1, 'x')  # my_list becomes [1, 'x', 2, 3]",
+      "category": "Methods Reference",
+      "tags": [
+        "how-to",
+        "purpose"
+      ]
+    },
+    {
+      "title": "remove()",
+      "content": "remove()\n--------\nPurpose: Remove first occurrence of value\nHow to use: list.remove(value)\nUsable for: Lists\nSample usage:\n    my_list = [1, 2, 3, 2]\n    my_list.remove(2)  # my_list becomes [1, 3, 2]",
+      "category": "Methods Reference",
+      "tags": [
+        "how-to",
+        "purpose"
+      ]
+    },
+    {
+      "title": "pop()",
+      "content": "pop()\n--------\nPurpose: Remove and return item at index (default last)\nHow to use: list.pop(index=-1)\nUsable for: Lists\nSample usage:\n    my_list = [1, 2, 3]\n    last = my_list.pop()  # Returns 3, my_list becomes [1, 2]\n    first = my_list.pop(0)  # Returns 1, my_list becomes [2]",
+      "category": "Methods Reference",
+      "tags": [
+        "how-to",
+        "purpose"
+      ]
+    },
+    {
+      "title": "index()",
+      "content": "index()\n--------\nPurpose: Return first index of value\nHow to use: list.index(value, start=0, end=len(list))\nUsable for: Lists\nSample usage:\n    my_list = [1, 2, 3, 2]\n    index = my_list.index(2)  # Returns 1",
+      "category": "Methods Reference",
+      "tags": [
+        "how-to",
+        "purpose"
+      ]
+    },
+    {
+      "title": "count()",
+      "content": "count()\n--------\nPurpose: Return number of occurrences of value\nHow to use: list.count(value)\nUsable for: Lists\nSample usage:\n    my_list = [1, 2, 2, 3, 2]\n    count = my_list.count(2)  # Returns 3",
+      "category": "Methods Reference",
+      "tags": [
+        "how-to",
+        "purpose"
+      ]
+    },
+    {
+      "title": "sort()",
+      "content": "sort()\n--------\nPurpose: Sort the list in place\nHow to use: list.sort(key=None, reverse=False)\nUsable for: Lists\nSample usage:\n    my_list = [3, 1, 4, 1, 5]\n    my_list.sort()  # my_list becomes [1, 1, 3, 4, 5]\n    my_list.sort(reverse=True)  # my_list becomes [5, 4, 3, 1, 1]",
+      "category": "Methods Reference",
+      "tags": [
+        "how-to",
+        "purpose"
+      ]
+    },
+    {
+      "title": "reverse()",
+      "content": "reverse()\n--------\nPurpose: Reverse the list in place\nHow to use: list.reverse()\nUsable for: Lists\nSample usage:\n    my_list = [1, 2, 3]\n    my_list.reverse()  # my_list becomes [3, 2, 1]",
+      "category": "Methods Reference",
+      "tags": [
+        "how-to",
+        "purpose"
+      ]
+    },
+    {
+      "title": "upper() and lower()",
+      "content": "upper() and lower()\n--------\nPurpose: Convert string to uppercase/lowercase\nHow to use: string.upper() or string.lower()\nUsable for: Strings\nSample usage:\n    text = \"Hello\"\n    upper_text = text.upper()  # Returns \"HELLO\"\n    lower_text = text.lower()  # Returns \"hello\"",
+      "category": "Methods Reference",
+      "tags": [
+        "how-to",
+        "purpose"
+      ]
+    },
+    {
+      "title": "strip(), lstrip(), rstrip()",
+      "content": "strip(), lstrip(), rstrip()\n--------\nPurpose: Remove leading/trailing whitespace or specified characters\nHow to use: string.strip(chars=None)\nUsable for: Strings\nSample usage:\n    text = \"  Hello  \"\n    stripped = text.strip()  # Returns \"Hello\"\n    text2 = \"***Hello***\"\n    stripped2 = text2.strip('*')  # Returns \"Hello\"",
+      "category": "Methods Reference",
+      "tags": [
+        "how-to",
+        "purpose"
+      ]
+    },
+    {
+      "title": "split()",
+      "content": "split()\n--------\nPurpose: Split string into a list\nHow to use: string.split(sep=None, maxsplit=-1)\nUsable for: Strings\nSample usage:\n    text = \"Hello,World,Python\"\n    parts = text.split(',')  # Returns ['Hello', 'World', 'Python']",
+      "category": "Methods Reference",
+      "tags": [
+        "how-to",
+        "purpose"
+      ]
+    },
+    {
+      "title": "join()",
+      "content": "join()\n--------\nPurpose: Join elements of an iterable into a string\nHow to use: string.join(iterable)\nUsable for: Strings\nSample usage:\n    words = ['Hello', 'World']\n    text = ' '.join(words)  # Returns \"Hello World\"",
+      "category": "Methods Reference",
+      "tags": [
+        "how-to",
+        "purpose"
+      ]
+    },
+    {
+      "title": "replace()",
+      "content": "replace()\n--------\nPurpose: Replace occurrences of substring\nHow to use: string.replace(old, new, count=-1)\nUsable for: Strings\nSample usage:\n    text = \"Hello World\"\n    new_text = text.replace('World', 'Python')  # Returns \"Hello Python\"",
+      "category": "Methods Reference",
+      "tags": [
+        "how-to",
+        "purpose"
+      ]
+    },
+    {
+      "title": "startswith() and endswith()",
+      "content": "startswith() and endswith()\n--------\nPurpose: Check if string starts/ends with specified prefix/suffix\nHow to use: string.startswith(prefix) or string.endswith(suffix)\nUsable for: Strings\nSample usage:\n    text = \"Hello World\"\n    starts = text.startswith('Hello')  # Returns True\n    ends = text.endswith('World')  # Returns True",
+      "category": "Methods Reference",
+      "tags": [
+        "how-to",
+        "purpose"
+      ]
+    },
+    {
+      "title": "get()",
+      "content": "get()\n--------\nPurpose: Return value for key if key exists, else default\nHow to use: dict.get(key, default=None)\nUsable for: Dictionaries\nSample usage:\n    my_dict = {'a': 1, 'b': 2}\n    value = my_dict.get('a')  # Returns 1\n    value = my_dict.get('c', 0)  # Returns 0",
+      "category": "Methods Reference",
+      "tags": [
+        "how-to",
+        "purpose"
+      ]
+    },
+    {
+      "title": "keys(), values(), items()",
+      "content": "keys(), values(), items()\n--------\nPurpose: Return view of dictionary's keys/values/key-value pairs\nHow to use: dict.keys(), dict.values(), dict.items()\nUsable for: Dictionaries\nSample usage:\n    my_dict = {'a': 1, 'b': 2}\n    keys = my_dict.keys()  # Returns dict_keys(['a', 'b'])\n    values = my_dict.values()  # Returns dict_values([1, 2])\n    items = my_dict.items()  # Returns dict_items([('a', 1), ('b', 2)])",
+      "category": "Methods Reference",
+      "tags": [
+        "how-to",
+        "purpose"
+      ]
+    },
+    {
+      "title": "update()",
+      "content": "update()\n--------\nPurpose: Update dictionary with key/value pairs\nHow to use: dict.update(other_dict)\nUsable for: Dictionaries\nSample usage:\n    dict1 = {'a': 1}\n    dict2 = {'b': 2}\n    dict1.update(dict2)  # dict1 becomes {'a': 1, 'b': 2}",
+      "category": "Methods Reference",
+      "tags": [
+        "how-to",
+        "purpose"
+      ]
+    },
+    {
+      "title": "pop()",
+      "content": "pop()\n--------\nPurpose: Remove specified key and return corresponding value\nHow to use: dict.pop(key, default)\nUsable for: Dictionaries\nSample usage:\n    my_dict = {'a': 1, 'b': 2}\n    value = my_dict.pop('a')  # Returns 1, my_dict becomes {'b': 2}",
+      "category": "Methods Reference",
+      "tags": [
+        "how-to",
+        "purpose"
+      ]
+    },
+    {
+      "title": "add()",
+      "content": "add()\n--------\nPurpose: Add element to set\nHow to use: set.add(element)\nUsable for: Sets\nSample usage:\n    my_set = {1, 2, 3}\n    my_set.add(4)  # my_set becomes {1, 2, 3, 4}",
+      "category": "Methods Reference",
+      "tags": [
+        "how-to",
+        "purpose"
+      ]
+    },
+    {
+      "title": "remove() and discard()",
+      "content": "remove() and discard()\n--------\nPurpose: Remove element from set (remove raises KeyError if not found)\nHow to use: set.remove(element) or set.discard(element)\nUsable for: Sets\nSample usage:\n    my_set = {1, 2, 3}\n    my_set.remove(2)  # my_set becomes {1, 3}\n    my_set.discard(4)  # No error if 4 not in set",
+      "category": "Methods Reference",
+      "tags": [
+        "how-to",
+        "purpose"
+      ]
+    },
+    {
+      "title": "union(), intersection(), difference()",
+      "content": "union(), intersection(), difference()\n--------\nPurpose: Return new set with elements from both sets/only in both/only in first\nHow to use: set1.union(set2), set1.intersection(set2), set1.difference(set2)\nUsable for: Sets\nSample usage:\n    set1 = {1, 2, 3}\n    set2 = {3, 4, 5}\n    union = set1.union(set2)  # Returns {1, 2, 3, 4, 5}\n    intersection = set1.intersection(set2)  # Returns {3}\n    difference = set1.difference(set2)  # Returns {1, 2}",
+      "category": "Methods Reference",
+      "tags": [
+        "how-to",
+        "purpose"
+      ]
+    },
+    {
+      "title": "Python Number System Conversions and String Encoding Guide",
+      "content": "Python Number System Conversions and String Encoding Guide\n=======================================================\n\nThis file contains examples and explanations of various number system conversions\nand string encoding/decoding methods in Python.",
+      "category": "Number Conversions",
+      "tags": [
+        "example"
+      ]
+    },
+    {
+      "title": "Decimal to Binary",
+      "content": "Decimal to Binary\n--------\nPurpose: Convert decimal number to binary string\nHow to use: bin(number) or format(number, 'b')\nUsable for: Integers\nSample usage:\n    decimal = 42\n    binary = bin(decimal)  # Returns '0b101010'\n    binary_no_prefix = format(decimal, 'b')  # Returns '101010'\n    binary_padded = format(decimal, '08b')  # Returns '00101010' (8 digits)",
+      "category": "Number Conversions",
+      "tags": [
+        "how-to",
+        "purpose"
+      ]
+    },
+    {
+      "title": "Decimal to Hexadecimal",
+      "content": "Decimal to Hexadecimal\n--------\nPurpose: Convert decimal number to hexadecimal string\nHow to use: hex(number) or format(number, 'x')\nUsable for: Integers\nSample usage:\n    decimal = 42\n    hex_num = hex(decimal)  # Returns '0x2a'\n    hex_no_prefix = format(decimal, 'x')  # Returns '2a'\n    hex_upper = format(decimal, 'X')  # Returns '2A'\n    hex_padded = format(decimal, '04x')  # Returns '002a' (4 digits)",
+      "category": "Number Conversions",
+      "tags": [
+        "how-to",
+        "purpose"
+      ]
+    },
+    {
+      "title": "Decimal to Octal",
+      "content": "Decimal to Octal\n--------\nPurpose: Convert decimal number to octal string\nHow to use: oct(number) or format(number, 'o')\nUsable for: Integers\nSample usage:\n    decimal = 42\n    octal = oct(decimal)  # Returns '0o52'\n    octal_no_prefix = format(decimal, 'o')  # Returns '52'\n    octal_padded = format(decimal, '04o')  # Returns '0052' (4 digits)",
+      "category": "Number Conversions",
+      "tags": [
+        "how-to",
+        "purpose"
+      ]
+    },
+    {
+      "title": "Binary to Decimal",
+      "content": "Binary to Decimal\n--------\nPurpose: Convert binary string to decimal number\nHow to use: int(binary_string, 2)\nUsable for: Binary strings (with or without '0b' prefix)\nSample usage:\n    binary = '101010'\n    decimal = int(binary, 2)  # Returns 42\n    binary_with_prefix = '0b101010'\n    decimal2 = int(binary_with_prefix, 2)  # Returns 42",
+      "category": "Number Conversions",
+      "tags": [
+        "how-to",
+        "purpose"
+      ]
+    },
+    {
+      "title": "Hexadecimal to Decimal",
+      "content": "Hexadecimal to Decimal\n--------\nPurpose: Convert hexadecimal string to decimal number\nHow to use: int(hex_string, 16)\nUsable for: Hex strings (with or without '0x' prefix)\nSample usage:\n    hex_str = '2a'\n    decimal = int(hex_str, 16)  # Returns 42\n    hex_with_prefix = '0x2a'\n    decimal2 = int(hex_with_prefix, 16)  # Returns 42",
+      "category": "Number Conversions",
+      "tags": [
+        "how-to",
+        "purpose"
+      ]
+    },
+    {
+      "title": "Octal to Decimal",
+      "content": "Octal to Decimal\n--------\nPurpose: Convert octal string to decimal number\nHow to use: int(octal_string, 8)\nUsable for: Octal strings (with or without '0o' prefix)\nSample usage:\n    octal = '52'\n    decimal = int(octal, 8)  # Returns 42\n    octal_with_prefix = '0o52'\n    decimal2 = int(octal_with_prefix, 8)  # Returns 42",
+      "category": "Number Conversions",
+      "tags": [
+        "how-to",
+        "purpose"
+      ]
+    },
+    {
+      "title": "Binary to Hexadecimal",
+      "content": "Binary to Hexadecimal\n--------\nPurpose: Convert binary string to hexadecimal string\nHow to use: hex(int(binary_string, 2)) or format(int(binary_string, 2), 'x')\nUsable for: Binary strings\nSample usage:\n    binary = '101010'\n    hex_str = hex(int(binary, 2))  # Returns '0x2a'\n    hex_no_prefix = format(int(binary, 2), 'x')  # Returns '2a'\n    hex_upper = format(int(binary, 2), 'X')  # Returns '2A'",
+      "category": "Number Conversions",
+      "tags": [
+        "how-to",
+        "purpose"
+      ]
+    },
+    {
+      "title": "Binary to Octal",
+      "content": "Binary to Octal\n--------\nPurpose: Convert binary string to octal string\nHow to use: oct(int(binary_string, 2)) or format(int(binary_string, 2), 'o')\nUsable for: Binary strings\nSample usage:\n    binary = '101010'\n    octal = oct(int(binary, 2))  # Returns '0o52'\n    octal_no_prefix = format(int(binary, 2), 'o')  # Returns '52'",
+      "category": "Number Conversions",
+      "tags": [
+        "how-to",
+        "purpose"
+      ]
+    },
+    {
+      "title": "Hexadecimal to Binary",
+      "content": "Hexadecimal to Binary\n--------\nPurpose: Convert hexadecimal string to binary string\nHow to use: bin(int(hex_string, 16)) or format(int(hex_string, 16), 'b')\nUsable for: Hex strings\nSample usage:\n    hex_str = '2a'\n    binary = bin(int(hex_str, 16))  # Returns '0b101010'\n    binary_no_prefix = format(int(hex_str, 16), 'b')  # Returns '101010'\n    binary_padded = format(int(hex_str, 16), '08b')  # Returns '00101010'",
+      "category": "Number Conversions",
+      "tags": [
+        "how-to",
+        "purpose"
+      ]
+    },
+    {
+      "title": "Hexadecimal to Octal",
+      "content": "Hexadecimal to Octal\n--------\nPurpose: Convert hexadecimal string to octal string\nHow to use: oct(int(hex_string, 16)) or format(int(hex_string, 16), 'o')\nUsable for: Hex strings\nSample usage:\n    hex_str = '2a'\n    octal = oct(int(hex_str, 16))  # Returns '0o52'\n    octal_no_prefix = format(int(hex_str, 16), 'o')  # Returns '52'",
+      "category": "Number Conversions",
+      "tags": [
+        "how-to",
+        "purpose"
+      ]
+    },
+    {
+      "title": "Octal to Binary",
+      "content": "Octal to Binary\n--------\nPurpose: Convert octal string to binary string\nHow to use: bin(int(octal_string, 8)) or format(int(octal_string, 8), 'b')\nUsable for: Octal strings\nSample usage:\n    octal = '52'\n    binary = bin(int(octal, 8))  # Returns '0b101010'\n    binary_no_prefix = format(int(octal, 8), 'b')  # Returns '101010'\n    binary_padded = format(int(octal, 8), '08b')  # Returns '00101010'",
+      "category": "Number Conversions",
+      "tags": [
+        "how-to",
+        "purpose"
+      ]
+    },
+    {
+      "title": "Octal to Hexadecimal",
+      "content": "Octal to Hexadecimal\n--------\nPurpose: Convert octal string to hexadecimal string\nHow to use: hex(int(octal_string, 8)) or format(int(octal_string, 8), 'x')\nUsable for: Octal strings\nSample usage:\n    octal = '52'\n    hex_str = hex(int(octal, 8))  # Returns '0x2a'\n    hex_no_prefix = format(int(octal, 8), 'x')  # Returns '2a'\n    hex_upper = format(int(octal, 8), 'X')  # Returns '2A'",
+      "category": "Number Conversions",
+      "tags": [
+        "how-to",
+        "purpose"
+      ]
+    },
+    {
+      "title": "String to Bytes (UTF-8)",
+      "content": "String to Bytes (UTF-8)\n--------\nPurpose: Convert string to bytes using UTF-8 encoding\nHow to use: string.encode('utf-8')\nUsable for: Strings\nSample usage:\n    text = \"Hello, 世界\"\n    bytes_data = text.encode('utf-8')  # Returns b'Hello, \\xe4\\xb8\\x96\\xe7\\x95\\x8c'",
+      "category": "Number Conversions",
+      "tags": [
+        "how-to",
+        "purpose"
+      ]
+    },
+    {
+      "title": "Bytes to String (UTF-8)",
+      "content": "Bytes to String (UTF-8)\n--------\nPurpose: Convert bytes to string using UTF-8 decoding\nHow to use: bytes_data.decode('utf-8')\nUsable for: Bytes objects\nSample usage:\n    bytes_data = b'Hello, \\xe4\\xb8\\x96\\xe7\\x95\\x8c'\n    text = bytes_data.decode('utf-8')  # Returns \"Hello, 世界\"",
+      "category": "Number Conversions",
+      "tags": [
+        "how-to",
+        "purpose"
+      ]
+    },
+    {
+      "title": "ASCII Encoding/Decoding",
+      "content": "ASCII Encoding/Decoding\n--------\nPurpose: Convert string to/from ASCII bytes\nHow to use: string.encode('ascii') or bytes_data.decode('ascii')\nUsable for: ASCII-compatible strings\nSample usage:\n    text = \"Hello\"\n    ascii_bytes = text.encode('ascii')  # Returns b'Hello'\n    decoded_text = ascii_bytes.decode('ascii')  # Returns \"Hello\"",
+      "category": "Number Conversions",
+      "tags": [
+        "how-to",
+        "purpose"
+      ]
+    },
+    {
+      "title": "Base64 Encoding/Decoding",
+      "content": "Base64 Encoding/Decoding\n--------\nPurpose: Convert bytes to/from base64 string\nHow to use: base64.b64encode() or base64.b64decode()\nUsable for: Binary data\nSample usage:\n    import base64\n    data = b'Hello, World!'\n    encoded = base64.b64encode(data)  # Returns b'SGVsbG8sIFdvcmxkIQ=='\n    decoded = base64.b64decode(encoded)  # Returns b'Hello, World!'",
+      "category": "Number Conversions",
+      "tags": [
+        "how-to",
+        "purpose"
+      ]
+    },
+    {
+      "title": "String to Binary",
+      "content": "String to Binary\n--------\nPurpose: Convert string to binary representation\nHow to use: ' '.join(format(ord(char), '08b') for char in string)\nUsable for: Any string (ASCII or Unicode)\nSample usage:\n    text = \"Hello\"\n    binary = ' '.join(format(ord(char), '08b') for char in text)\n    # Returns '01001000 01100101 01101100 01101100 01101111'\n    \n    # For Unicode characters\n    text = \"Hello, 世界\"\n    binary = ' '.join(format(ord(char), '08b') for char in text)\n    # Returns '01001000 01100101 01101100 01101100 01101111 00101100 00100000 11100100 10111000 10010110 11100101 10101101 10001100'",
+      "category": "Number Conversions",
+      "tags": [
+        "how-to",
+        "purpose"
+      ]
+    },
+    {
+      "title": "Binary to String",
+      "content": "Binary to String\n--------\nPurpose: Convert binary string back to text\nHow to use: ''.join(chr(int(binary, 2)) for binary in binary_string.split())\nUsable for: Binary strings in 8-bit format\nSample usage:\n    binary = '01001000 01100101 01101100 01101100 01101111'\n    text = ''.join(chr(int(binary, 2)) for binary in binary.split())\n    # Returns \"Hello\"\n    \n    # For Unicode characters\n    binary = '01001000 01100101 01101100 01101100 01101111 00101100 00100000 11100100 10111000 10010110 11100101 10101101 10001100'\n    text = ''.join(chr(int(binary, 2)) for binary in binary.split())\n    # Returns \"Hello, 世界\"",
+      "category": "Number Conversions",
+      "tags": [
+        "how-to",
+        "purpose"
+      ]
+    },
+    {
+      "title": "String to Binary (Alternative Method)",
+      "content": "String to Binary (Alternative Method)\n--------\nPurpose: Convert string to binary using bytes\nHow to use: ' '.join(format(byte, '08b') for byte in string.encode('utf-8'))\nUsable for: Any string (ASCII or Unicode)\nSample usage:\n    text = \"Hello\"\n    binary = ' '.join(format(byte, '08b') for byte in text.encode('utf-8'))\n    # Returns '01001000 01100101 01101100 01101100 01101111'\n    \n    # For Unicode characters\n    text = \"Hello, 世界\"\n    binary = ' '.join(format(byte, '08b') for byte in text.encode('utf-8'))\n    # Returns '01001000 01100101 01101100 01101100 01101111 00101100 00100000 11100100 10111000 10010110 11100101 10101101 10001100'",
+      "category": "Number Conversions",
+      "tags": [
+        "how-to",
+        "purpose"
+      ]
+    },
+    {
+      "title": "Binary to String (Alternative Method)",
+      "content": "Binary to String (Alternative Method)\n--------\nPurpose: Convert binary string back to text using bytes\nHow to use: bytes([int(binary, 2) for binary in binary_string.split()]).decode('utf-8')\nUsable for: Binary strings in 8-bit format\nSample usage:\n    binary = '01001000 01100101 01101100 01101100 01101111'\n    text = bytes([int(binary, 2) for binary in binary.split()]).decode('utf-8')\n    # Returns \"Hello\"\n    \n    # For Unicode characters\n    binary = '01001000 01100101 01101100 01101100 01101111 00101100 00100000 11100100 10111000 10010110 11100101 10101101 10001100'\n    text = bytes([int(binary, 2) for binary in binary.split()]).decode('utf-8')\n    # Returns \"Hello, 世界\"",
+      "category": "Number Conversions",
+      "tags": [
+        "how-to",
+        "purpose"
+      ]
+    },
+    {
+      "title": "Example: Converting between number systems",
+      "content": "Example: Converting between number systems\n--------\nSample usage:\n    # Decimal to different bases\n    num = 42\n    print(f\"Decimal {num}:\")\n    print(f\"Binary: {bin(num)}\")\n    print(f\"Hex: {hex(num)}\")\n    print(f\"Octal: {oct(num)}\")\n    \n    # Converting back to decimal\n    binary = '101010'\n    hex_str = '2a'\n    octal = '52'\n    \n    print(f\"\\nConverting back to decimal:\")\n    print(f\"Binary {binary} -> {int(binary, 2)}\")\n    print(f\"Hex {hex_str} -> {int(hex_str, 16)}\")\n    print(f\"Octal {octal} -> {int(octal, 8)}\")\n    \n    # Cross-conversion examples\n    print(f\"\\nCross-conversion examples:\")\n    print(f\"Binary to Hex: {hex(int(binary, 2))}\")\n    print(f\"Hex to Binary: {bin(int(hex_str, 16))}\")\n    print(f\"Octal to Hex: {hex(int(octal, 8))}\")\n    print(f\"Hex to Octal: {oct(int(hex_str, 16))}\")",
+      "category": "Number Conversions",
+      "tags": [
+        "example"
+      ]
+    },
+    {
+      "title": "Example: String encoding/decoding",
+      "content": "Example: String encoding/decoding\n--------\nSample usage:\n    # UTF-8 encoding/decoding\n    text = \"Hello, 世界\"\n    encoded = text.encode('utf-8')\n    decoded = encoded.decode('utf-8')\n    print(f\"Original: {text}\")\n    print(f\"Encoded: {encoded}\")\n    print(f\"Decoded: {decoded}\")\n    \n    # Base64 encoding/decoding\n    import base64\n    data = b'Hello, World!'\n    encoded = base64.b64encode(data)\n    decoded = base64.b64decode(encoded)\n    print(f\"\\nOriginal: {data}\")\n    print(f\"Base64: {encoded}\")\n    print(f\"Decoded: {decoded}\")",
+      "category": "Number Conversions",
+      "tags": [
+        "example"
+      ]
+    },
+    {
+      "title": "Example: String to Binary and Back",
+      "content": "Example: String to Binary and Back\n--------\nSample usage:\n    # Convert string to binary\n    text = \"Hello, 世界\"\n    print(f\"Original text: {text}\")\n    \n    # Method 1: Using ord() and chr()\n    binary1 = ' '.join(format(ord(char), '08b') for char in text)\n    print(f\"\\nMethod 1 - Binary: {binary1}\")\n    text1 = ''.join(chr(int(binary, 2)) for binary in binary1.split())\n    print(f\"Method 1 - Back to text: {text1}\")\n    \n    # Method 2: Using bytes\n    binary2 = ' '.join(format(byte, '08b') for byte in text.encode('utf-8'))\n    print(f\"\\nMethod 2 - Binary: {binary2}\")\n    text2 = bytes([int(binary, 2) for binary in binary2.split()]).decode('utf-8')\n    print(f\"Method 2 - Back to text: {text2}\")",
+      "category": "Number Conversions",
+      "tags": [
+        "example"
+      ]
+    },
+    {
+      "title": "Python Reference Search Helper",
+      "content": "Python Reference Search Helper\n============================\n\nThis file provides functions to search through Python reference files\nand find specific concepts, examples, or usage patterns.",
+      "category": "Reference Search",
+      "tags": [
+        "example"
+      ]
+    },
+    {
+      "title": "Search through Python reference files for specific concepts or examples.",
+      "content": "Search through Python reference files for specific concepts or examples.\n    \n    Args:\n        query (str): Search query (e.g., \"how to create list\", \"list comprehension\")\n        file_pattern (str): Pattern to match reference files\n        \n    Returns:\n        list: List of tuples containing (file_name, section_title, content)",
+      "category": "Reference Search",
+      "tags": [
+        "how-to",
+        "example"
+      ]
+    },
+    {
+      "title": "(.*?)",
+      "content": "(.*?)",
+      "category": "Reference Search",
+      "tags": []
+    },
+    {
+      "title": "Print search results in a formatted way.",
+      "content": "Print search results in a formatted way.",
+      "category": "Reference Search",
+      "tags": []
+    },
+    {
+      "title": "Interactive search interface.",
+      "content": "Interactive search interface.",
+      "category": "Reference Search",
+      "tags": []
+    },
+    {
+      "title": "Python Reference Search Application",
+      "content": "Python Reference Search Application\n=================================\n\nA console application that searches through compiled Python reference data\nusing fuzzy matching and provides rich formatted output.",
+      "category": "Reference Search App",
+      "tags": []
+    },
+    {
+      "title": "Manages the reference database and search operations.",
+      "content": "Manages the reference database and search operations.",
+      "category": "Reference Search App",
+      "tags": []
+    },
+    {
+      "title": "Load the reference database from JSON file.",
+      "content": "Load the reference database from JSON file.",
+      "category": "Reference Search App",
+      "tags": []
+    },
+    {
+      "title": "Save the reference database to JSON file.",
+      "content": "Save the reference database to JSON file.",
+      "category": "Reference Search App",
+      "tags": []
+    },
+    {
+      "title": "Add a new reference to the database.",
+      "content": "Add a new reference to the database.",
+      "category": "Reference Search App",
+      "tags": []
+    },
+    {
+      "title": "Search the database using fuzzy matching.",
+      "content": "Search the database using fuzzy matching.\n        \n        Args:\n            query: Search query\n            threshold: Minimum similarity score (0-100)\n            \n        Returns:\n            List of matching references",
+      "category": "Reference Search App",
+      "tags": []
+    },
+    {
+      "title": "Compile all reference files into the database.",
+      "content": "Compile all reference files into the database.",
+      "category": "Reference Search App",
+      "tags": []
+    },
+    {
+      "title": "')",
+      "content": "')\n            \n            for i in range(1, len(sections), 2):\n                if i + 1 < len(sections):\n                    section = sections[i].strip()\n                    \n                    # Extract title and content\n                    lines = section.split('\\n')\n                    title = lines[0].strip()\n                    \n                    # Extract category from file name\n                    category = file_path.stem.replace('python_', '').replace('_', ' ').title()\n                    \n                    # Generate tags from content\n                    content_lower = section.lower()\n                    tags = []\n                    if \"how to\" in content_lower:\n                        tags.append(\"how-to\")\n                    if \"example\" in content_lower:\n                        tags.append(\"example\")\n                    if \"purpose\" in content_lower:\n                        tags.append(\"purpose\")\n                    \n                    # Add to database\n                    db.add_reference(title, section, category, tags)\n    \n    console.print(\"[green]References compiled successfully![/green]\")\n\n@app.command()\ndef compile():",
+      "category": "Reference Search App",
+      "tags": [
+        "how-to",
+        "example",
+        "purpose"
+      ]
+    },
+    {
+      "title": "compile_references()",
+      "content": "compile_references()\n\n@app.command()\ndef search(\n    query: str = typer.Argument(..., help=\"Search query\"),\n    threshold: int = typer.Option(60, \"--threshold\", \"-t\", help=\"Minimum match threshold (0-100)\")\n):",
+      "category": "Reference Search App",
+      "tags": []
+    },
+    {
+      "title": "db = ReferenceDatabase()",
+      "content": "db = ReferenceDatabase()\n    results = db.search(query, threshold)\n    \n    if not results:\n        console.print(\"[yellow]No results found.[/yellow]\")\n        return\n    \n    for i, result in enumerate(results, 1):\n        # Create markdown content\n        md_content = f",
+      "category": "Reference Search App",
+      "tags": []
+    },
+    {
+      "title": "# Print result in a panel",
+      "content": "# Print result in a panel\n        console.print(Panel(\n            Markdown(md_content),\n            title=f\"Result {i}\",\n            border_style=\"blue\"\n        ))\n\n@app.command()\ndef interactive():",
+      "category": "Reference Search App",
+      "tags": []
+    },
+    {
+      "title": "db = ReferenceDatabase()",
+      "content": "db = ReferenceDatabase()\n    \n    console.print(\"[bold blue]Python Reference Search[/bold blue]\")\n    console.print(\"Type 'exit' to quit, 'help' for help\")\n    \n    while True:\n        query = Prompt.ask(\"\\nSearch query\")\n        \n        if query.lower() == 'exit':\n            break\n        elif query.lower() == 'help':\n            console.print(",
+      "category": "Reference Search App",
+      "tags": []
+    },
+    {
+      "title": ")",
+      "content": ")\n            continue\n        \n        results = db.search(query)\n        \n        if not results:\n            console.print(\"[yellow]No results found.[/yellow]\")\n            continue\n        \n        for i, result in enumerate(results, 1):\n            md_content = f",
+      "category": "Reference Search App",
+      "tags": []
+    },
+    {
+      "title": "Python String Manipulation Guide",
+      "content": "Python String Manipulation Guide\n==============================\n\nThis file contains examples and explanations of string manipulation methods,\nsearching, replacing, and other string operations in Python.",
+      "category": "String Manipulations",
+      "tags": [
+        "example"
+      ]
+    },
+    {
+      "title": "Membership Testing (in, not in)",
+      "content": "Membership Testing (in, not in)\n--------\nPurpose: Check if a substring exists in a string\nHow to use: substring in string, substring not in string\nUsable for: Strings\nSample usage:\n    text = \"Hello, World!\"\n    contains = \"World\" in text  # Returns True\n    not_contains = \"Python\" not in text  # Returns True\n    \n    # Case-sensitive comparison\n    \"hello\" in text  # Returns False\n    \"hello\" in text.lower()  # Returns True",
+      "category": "String Manipulations",
+      "tags": [
+        "how-to",
+        "purpose"
+      ]
+    },
+    {
+      "title": "String Comparison",
+      "content": "String Comparison\n--------\nPurpose: Compare strings lexicographically\nHow to use: string1 < string2, string1 <= string2, etc.\nUsable for: Strings\nSample usage:\n    # Lexicographical comparison\n    \"apple\" < \"banana\"  # Returns True\n    \"cat\" > \"dog\"  # Returns False\n    \n    # Case matters in comparison\n    \"Apple\" < \"banana\"  # Returns True (uppercase comes before lowercase)\n    \n    # Compare with case-insensitive\n    \"Apple\".lower() < \"banana\".lower()  # Returns True",
+      "category": "String Manipulations",
+      "tags": [
+        "how-to",
+        "purpose"
+      ]
+    },
+    {
+      "title": "isalpha(), isdigit(), isalnum()",
+      "content": "isalpha(), isdigit(), isalnum()\n--------\nPurpose: Check if string contains only alphabets/digits/alphanumeric\nHow to use: string.isalpha(), string.isdigit(), string.isalnum()\nUsable for: Strings\nSample usage:\n    \"Hello\".isalpha()  # Returns True\n    \"123\".isdigit()  # Returns True\n    \"Hello123\".isalnum()  # Returns True\n    \"Hello 123\".isalnum()  # Returns False (contains space)",
+      "category": "String Manipulations",
+      "tags": [
+        "how-to",
+        "purpose"
+      ]
+    },
+    {
+      "title": "isspace(), islower(), isupper()",
+      "content": "isspace(), islower(), isupper()\n--------\nPurpose: Check string characteristics\nHow to use: string.isspace(), string.islower(), string.isupper()\nUsable for: Strings\nSample usage:\n    \"   \".isspace()  # Returns True\n    \"hello\".islower()  # Returns True\n    \"HELLO\".isupper()  # Returns True\n    \"Hello\".islower()  # Returns False",
+      "category": "String Manipulations",
+      "tags": [
+        "how-to",
+        "purpose"
+      ]
+    },
+    {
+      "title": "isnumeric(), isdecimal(), isprintable()",
+      "content": "isnumeric(), isdecimal(), isprintable()\n--------\nPurpose: Check string characteristics\nHow to use: string.isnumeric(), string.isdecimal(), string.isprintable()\nUsable for: Strings\nSample usage:\n    \"123\".isnumeric()  # Returns True\n    \"123\".isdecimal()  # Returns True\n    \"Hello\\n\".isprintable()  # Returns False (contains newline)\n    \"Hello\".isprintable()  # Returns True",
+      "category": "String Manipulations",
+      "tags": [
+        "how-to",
+        "purpose"
+      ]
+    },
+    {
+      "title": "istitle(), isidentifier()",
+      "content": "istitle(), isidentifier()\n--------\nPurpose: Check if string is title case or valid identifier\nHow to use: string.istitle(), string.isidentifier()\nUsable for: Strings\nSample usage:\n    \"Hello World\".istitle()  # Returns True\n    \"hello world\".istitle()  # Returns False\n    \"variable_name\".isidentifier()  # Returns True\n    \"123variable\".isidentifier()  # Returns False",
+      "category": "String Manipulations",
+      "tags": [
+        "how-to",
+        "purpose"
+      ]
+    },
+    {
+      "title": "find() and rfind()",
+      "content": "find() and rfind()\n--------\nPurpose: Find the first/last occurrence of a substring\nHow to use: string.find(substring, start=0, end=len(string))\nUsable for: Strings\nSample usage:\n    text = \"Hello, World! Hello, Python!\"\n    first = text.find('Hello')  # Returns 0\n    last = text.rfind('Hello')  # Returns 13\n    not_found = text.find('Python', 0, 10)  # Returns -1",
+      "category": "String Manipulations",
+      "tags": [
+        "how-to",
+        "purpose"
+      ]
+    },
+    {
+      "title": "index() and rindex()",
+      "content": "index() and rindex()\n--------\nPurpose: Find the first/last occurrence of a substring (raises ValueError if not found)\nHow to use: string.index(substring, start=0, end=len(string))\nUsable for: Strings\nSample usage:\n    text = \"Hello, World! Hello, Python!\"\n    first = text.index('Hello')  # Returns 0\n    last = text.rindex('Hello')  # Returns 13\n    # text.index('Python', 0, 10)  # Raises ValueError",
+      "category": "String Manipulations",
+      "tags": [
+        "how-to",
+        "purpose"
+      ]
+    },
+    {
+      "title": "count()",
+      "content": "count()\n--------\nPurpose: Count occurrences of a substring\nHow to use: string.count(substring, start=0, end=len(string))\nUsable for: Strings\nSample usage:\n    text = \"Hello, World! Hello, Python!\"\n    count = text.count('Hello')  # Returns 2\n    count_range = text.count('o', 0, 10)  # Returns 2",
+      "category": "String Manipulations",
+      "tags": [
+        "how-to",
+        "purpose"
+      ]
+    },
+    {
+      "title": "startswith() and endswith()",
+      "content": "startswith() and endswith()\n--------\nPurpose: Check if string starts/ends with a prefix/suffix\nHow to use: string.startswith(prefix, start=0, end=len(string))\nUsable for: Strings\nSample usage:\n    text = \"Hello, World!\"\n    starts = text.startswith('Hello')  # Returns True\n    ends = text.endswith('!')  # Returns True\n    starts_range = text.startswith('World', 7)  # Returns True",
+      "category": "String Manipulations",
+      "tags": [
+        "how-to",
+        "purpose"
+      ]
+    },
+    {
+      "title": "replace()",
+      "content": "replace()\n--------\nPurpose: Replace occurrences of a substring\nHow to use: string.replace(old, new, count=-1)\nUsable for: Strings\nSample usage:\n    text = \"Hello, World! Hello, Python!\"\n    replaced = text.replace('Hello', 'Hi')  # Returns \"Hi, World! Hi, Python!\"\n    replaced_once = text.replace('Hello', 'Hi', 1)  # Returns \"Hi, World! Hello, Python!\"",
+      "category": "String Manipulations",
+      "tags": [
+        "how-to",
+        "purpose"
+      ]
+    },
+    {
+      "title": "translate() and maketrans()",
+      "content": "translate() and maketrans()\n--------\nPurpose: Replace multiple characters using a translation table\nHow to use: string.translate(table)\nUsable for: Strings\nSample usage:\n    # Create translation table\n    table = str.maketrans('aeiou', '12345')\n    text = \"Hello, World!\"\n    translated = text.translate(table)  # Returns \"H2ll4, W4rld!\"\n    \n    # Remove specific characters\n    remove_chars = str.maketrans('', '', '!,.')\n    cleaned = text.translate(remove_chars)  # Returns \"Hello World\"",
+      "category": "String Manipulations",
+      "tags": [
+        "how-to",
+        "purpose"
+      ]
+    },
+    {
+      "title": "split() and rsplit()",
+      "content": "split() and rsplit()\n--------\nPurpose: Split string into a list\nHow to use: string.split(sep=None, maxsplit=-1)\nUsable for: Strings\nSample usage:\n    text = \"Hello, World, Python\"\n    parts = text.split(',')  # Returns ['Hello', ' World', ' Python']\n    parts = text.split(',', 1)  # Returns ['Hello', ' World, Python']\n    words = text.split()  # Returns ['Hello,', 'World,', 'Python']",
+      "category": "String Manipulations",
+      "tags": [
+        "how-to",
+        "purpose"
+      ]
+    },
+    {
+      "title": "splitlines()",
+      "content": "splitlines()\n--------\nPurpose: Split string at line boundaries\nHow to use: string.splitlines(keepends=False)\nUsable for: Strings\nSample usage:\n    text = \"Line 1\\nLine 2\\r\\nLine 3\"\n    lines = text.splitlines()  # Returns ['Line 1', 'Line 2', 'Line 3']\n    lines_with_ends = text.splitlines(True)  # Returns ['Line 1\\n', 'Line 2\\r\\n', 'Line 3']",
+      "category": "String Manipulations",
+      "tags": [
+        "how-to",
+        "purpose"
+      ]
+    },
+    {
+      "title": "join()",
+      "content": "join()\n--------\nPurpose: Join elements of an iterable into a string\nHow to use: string.join(iterable)\nUsable for: Lists, tuples, and other iterables\nSample usage:\n    words = ['Hello', 'World', 'Python']\n    text = ' '.join(words)  # Returns \"Hello World Python\"\n    text = '-'.join(words)  # Returns \"Hello-World-Python\"",
+      "category": "String Manipulations",
+      "tags": [
+        "how-to",
+        "purpose"
+      ]
+    },
+    {
+      "title": "upper(), lower(), title(), capitalize()",
+      "content": "upper(), lower(), title(), capitalize()\n--------\nPurpose: Convert string case\nHow to use: string.upper(), string.lower(), string.title(), string.capitalize()\nUsable for: Strings\nSample usage:\n    text = \"hello, world!\"\n    upper = text.upper()  # Returns \"HELLO, WORLD!\"\n    lower = text.lower()  # Returns \"hello, world!\"\n    title = text.title()  # Returns \"Hello, World!\"\n    cap = text.capitalize()  # Returns \"Hello, world!\"",
+      "category": "String Manipulations",
+      "tags": [
+        "how-to",
+        "purpose"
+      ]
+    },
+    {
+      "title": "swapcase()",
+      "content": "swapcase()\n--------\nPurpose: Swap case of all characters\nHow to use: string.swapcase()\nUsable for: Strings\nSample usage:\n    text = \"Hello, World!\"\n    swapped = text.swapcase()  # Returns \"hELLO, wORLD!\"",
+      "category": "String Manipulations",
+      "tags": [
+        "how-to",
+        "purpose"
+      ]
+    },
+    {
+      "title": "casefold()",
+      "content": "casefold()\n--------\nPurpose: Convert string to casefolded form (for case-insensitive comparison)\nHow to use: string.casefold()\nUsable for: Strings\nSample usage:\n    text = \"Hello, World!\"\n    folded = text.casefold()  # Returns \"hello, world!\"\n    # Useful for case-insensitive comparison\n    \"Hello\".casefold() == \"hello\".casefold()  # Returns True",
+      "category": "String Manipulations",
+      "tags": [
+        "how-to",
+        "purpose"
+      ]
+    },
+    {
+      "title": "strip(), lstrip(), rstrip()",
+      "content": "strip(), lstrip(), rstrip()\n--------\nPurpose: Remove leading/trailing whitespace or specified characters\nHow to use: string.strip(chars=None)\nUsable for: Strings\nSample usage:\n    text = \"  Hello, World!  \"\n    stripped = text.strip()  # Returns \"Hello, World!\"\n    text = \"***Hello***\"\n    stripped = text.strip('*')  # Returns \"Hello\"",
+      "category": "String Manipulations",
+      "tags": [
+        "how-to",
+        "purpose"
+      ]
+    },
+    {
+      "title": "ljust(), rjust(), center()",
+      "content": "ljust(), rjust(), center()\n--------\nPurpose: Pad string to a specified width\nHow to use: string.ljust(width, fillchar=' ')\nUsable for: Strings\nSample usage:\n    text = \"Hello\"\n    left = text.ljust(10)  # Returns \"Hello     \"\n    right = text.rjust(10)  # Returns \"     Hello\"\n    center = text.center(10)  # Returns \"  Hello   \"\n    padded = text.center(10, '*')  # Returns \"**Hello***\"",
+      "category": "String Manipulations",
+      "tags": [
+        "how-to",
+        "purpose"
+      ]
+    },
+    {
+      "title": "zfill()",
+      "content": "zfill()\n--------\nPurpose: Pad string with zeros on the left\nHow to use: string.zfill(width)\nUsable for: Strings\nSample usage:\n    text = \"42\"\n    padded = text.zfill(5)  # Returns \"00042\"\n    text = \"-42\"\n    padded = text.zfill(5)  # Returns \"-0042\"",
+      "category": "String Manipulations",
+      "tags": [
+        "how-to",
+        "purpose"
+      ]
+    },
+    {
+      "title": "Example: String Validation and Checking",
+      "content": "Example: String Validation and Checking\n--------\nSample usage:\n    # Validate a string\n    def validate_string(text):\n        if not text:\n            return \"Empty string\"\n        if not text.isprintable():\n            return \"Contains non-printable characters\"\n        if not text.isalnum():\n            return \"Contains special characters\"\n        return \"Valid string\"\n    \n    print(validate_string(\"Hello123\"))  # Returns \"Valid string\"\n    print(validate_string(\"Hello 123\"))  # Returns \"Contains special characters\"\n    \n    # Check password strength\n    def check_password(password):\n        if len(password) < 8:\n            return \"Too short\"\n        if not any(c.isupper() for c in password):\n            return \"No uppercase letters\"\n        if not any(c.islower() for c in password):\n            return \"No lowercase letters\"\n        if not any(c.isdigit() for c in password):\n            return \"No numbers\"\n        return \"Strong password\"\n    \n    print(check_password(\"abc\"))  # Returns \"Too short\"\n    print(check_password(\"abc123\"))  # Returns \"No uppercase letters\"\n    print(check_password(\"Abc123\"))  # Returns \"Strong password\"\n    \n    # Find common words in two strings\n    def find_common_words(str1, str2):\n        words1 = set(str1.lower().split())\n        words2 = set(str2.lower().split())\n        return words1 & words2  # Returns intersection of sets\n    \n    text1 = \"The quick brown fox\"\n    text2 = \"The lazy brown dog\"\n    common = find_common_words(text1, text2)\n    print(f\"Common words: {common}\")  # Returns {'the', 'brown'}",
+      "category": "String Manipulations",
+      "tags": [
+        "example"
+      ]
+    }
+  ]
+}
