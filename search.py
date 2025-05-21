@@ -294,7 +294,7 @@ class PythonReferenceSearch:
 def main():
     # Get the directory of the current script
     current_dir = os.path.dirname(os.path.abspath(__file__))
-    json_path = os.path.join(current_dir, "new reference", "python_reference.json")
+    json_path = os.path.join(current_dir, "new_reference", "python_reference.json")
     
     search_app = PythonReferenceSearch(json_path)
     search_app.run()
